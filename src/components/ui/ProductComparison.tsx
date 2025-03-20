@@ -85,7 +85,7 @@ interface ProductComparisonProps {
 export default function ProductComparison({ products }: ProductComparisonProps) {
   return (
     <div className="py-16 bg-white">
-      <div className="apple-container">
+      <div className="normal-container">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Which iPhone is right for you?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (

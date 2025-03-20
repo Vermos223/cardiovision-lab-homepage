@@ -31,21 +31,21 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
         <nav className="text-white">
           <ul className="space-y-6">
             <li>
-              <Link href="/store" className="text-lg" onClick={onClose}>Store</Link>
+              <Link href="/" className="text-lg" onClick={onClose}>HOME</Link>
             </li>
             <li>
-              <Link href="/mac" className="text-lg" onClick={onClose}>Mac</Link>
+              <Link href="/research" className="text-lg" onClick={onClose}>RESEARCH</Link>
             </li>
             <li>
-              <Link href="/ipad" className="text-lg" onClick={onClose}>iPad</Link>
+              <Link href="/publications" className="text-lg" onClick={onClose}>PUBLICATIONS</Link>
             </li>
             <li>
-              <Link href="/iphone" className="text-lg" onClick={onClose}>iPhone</Link>
+              <Link href="/groupmembers" className="text-lg" onClick={onClose}>GROUP MEMBERS</Link>
             </li>
             <li>
-              <Link href="/watch" className="text-lg" onClick={onClose}>Watch</Link>
+              <Link href="/contactus" className="text-lg" onClick={onClose}>CONTACT US</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/vision" className="text-lg" onClick={onClose}>Vision</Link>
             </li>
             <li>
@@ -62,11 +62,11 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             </li>
             <li>
               <Link href="/support" className="text-lg" onClick={onClose}>Support</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
 
-        <div className="border-t border-gray-700 pt-6 flex items-center space-x-6">
+        {/* <div className="border-t border-gray-700 pt-6 flex items-center space-x-6">
           <button className="text-white" aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
@@ -80,7 +80,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
               <path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -128,7 +128,16 @@ export default function Navigation() {
   const handleDropdownToggle = (dropdownName: string) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   // Close dropdowns when mobile menu opens
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -152,23 +161,25 @@ export default function Navigation() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50">
-        <nav className="bg-apple-nav backdrop-blur-md">
+      <nav className={`transition-colors duration-300 ${
+    isScrolled ? 'bg-apple-nav backdrop-blur-md' : 'bg-black'
+  }`}>
           <div className="max-w-[1024px] h-[44px] mx-auto flex items-center justify-between px-5 md:px-8">
             {/* Fruit Logo */}
             <Link href="/" className="text-white" aria-label="Fruit">
               <Image
-                src="/images/fruit-logo.svg"
+                src="/images/homepage/cv1.jpg"
                 alt="Fruit"
-                width={20}
-                height={44}
-                className="h-[44px] w-auto"
+                width={96}
+                height={96}
+                className="h-[32px] w-auto"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation Menu */}
             <div className="hidden md:flex space-x-7 justify-center flex-1">
-              <NavDropdown
+              {/* <NavDropdown
                 title="Store"
                 linkHref="/store"
                 isActive={activeDropdown === 'store'}
@@ -229,21 +240,22 @@ export default function Navigation() {
                     </ul>
                   </div>
                 </div>
-              </NavDropdown>
-
-              <Link href="/ipad" className="text-white text-xs nav-link">iPad</Link>
-              <Link href="/iphone" className="text-white text-xs nav-link">iPhone</Link>
-              <Link href="/watch" className="text-white text-xs nav-link">Watch</Link>
-              <Link href="/vision" className="text-white text-xs nav-link">Vision</Link>
+              </NavDropdown> */}
+              <Link href="/" className="text-white text-lg nav-link">HOME</Link>
+              <Link href="/research" className="text-white text-lg nav-link">RESEARCH</Link>
+              <Link href="/publications" className="text-white text-lg nav-link">PUBLICATIONS</Link>
+              <Link href="/groupmembers" className="text-white text-lg nav-link">GROUP MEMBERS</Link>
+              <Link href="/contactus" className="text-white text-lg nav-link">CONTACT US</Link>
+              {/* <Link href="/airpods" className="text-white text-xs nav-link">AirPods</Link>
               <Link href="/airpods" className="text-white text-xs nav-link">AirPods</Link>
               <Link href="/tv-home" className="text-white text-xs nav-link">TV & Home</Link>
               <Link href="/entertainment" className="text-white text-xs nav-link">Entertainment</Link>
               <Link href="/accessories" className="text-white text-xs nav-link">Accessories</Link>
-              <Link href="/support" className="text-white text-xs nav-link">Support</Link>
+              <Link href="/support" className="text-white text-xs nav-link">Support</Link> */}
             </div>
 
             {/* Search and Bag Icons */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* <div className="hidden md:flex items-center space-x-4">
               <button className="text-white" aria-label="Search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="44" viewBox="0 0 15 44" className="fill-white">
                   <path d="M14.298,27.202l-3.87-3.87c0.701-0.929,1.122-2.081,1.122-3.332c0-3.06-2.489-5.55-5.55-5.55c-3.06,0-5.55,2.49-5.55,5.55 c0,3.061,2.49,5.55,5.55,5.55c1.251,0,2.403-0.421,3.332-1.122l3.87,3.87c0.151,0.151,0.35,0.228,0.548,0.228 s0.396-0.076,0.548-0.228C14.601,27.995,14.601,27.505,14.298,27.202z M1.55,20c0-2.454,1.997-4.45,4.45-4.45 c2.454,0,4.45,1.997,4.45,4.45S8.454,24.45,6,24.45C3.546,24.45,1.55,22.454,1.55,20z"></path>
@@ -254,7 +266,7 @@ export default function Navigation() {
                   <path d="m11.3535 16.0283h-1.0205a3.4229 3.4229 0 0 0 -3.333-2.9648 3.4229 3.4229 0 0 0 -3.333 2.9648h-1.02a2.1184 2.1184 0 0 0 -2.117 2.1162v7.7155a2.1186 2.1186 0 0 0 2.1167 2.1167h8.707a2.1186 2.1186 0 0 0 2.1168-2.1167v-7.7155a2.1184 2.1184 0 0 0 -2.117-2.1162zm-4.3535-1.8652a2.3169 2.3169 0 0 1 2.2222 1.8652h-4.4444a2.3169 2.3169 0 0 1 2.2222-1.8652zm5.37 11.6969a1.0182 1.0182 0 0 1 -1.0166 1.0166h-8.7069a1.0182 1.0182 0 0 1 -1.0167-1.0166v-7.7155a1.0178 1.0178 0 0 1 1.0167-1.0166h8.707a1.0178 1.0178 0 0 1 1.0166 1.0166z"></path>
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
         </nav>
 

@@ -6,7 +6,7 @@ interface ProductPromoProps {
   title: string;
   subtitle: string;
   description?: string;
-  primaryLink: {
+  primaryLink?: {
     text: string;
     url: string;
   };
@@ -38,7 +38,7 @@ export default function ProductPromo({
   const containerHeightClass = isSmall ? 'h-[500px]' : 'h-[580px]';
 
   return (
-    <div className={`relative w-full ${containerHeightClass} flex flex-col items-center overflow-hidden`} style={bgColorStyle}>
+    <div className={`relative w-full ${containerHeightClass} flex flex-col items-center `} style={bgColorStyle}>
       {/* Text content */}
       <div className={`z-20 text-center ${textColorClass} mt-10`}>
         {logoImage ? (
@@ -55,10 +55,13 @@ export default function ProductPromo({
           <h2 className="text-3xl md:text-4xl font-semibold">{title}</h2>
         )}
 
-        <h3 className="text-lg md:text-xl mt-1">{subtitle}</h3>
+        <h3 className="text-base md:text-lg mt-1 mx-auto px-8 md:px-12 leading-tight max-w-[85%]">{subtitle}</h3>
         {description && <p className="mt-2 text-md">{description}</p>}
-
+        
+        {/* Links */}
+        {(primaryLink || secondaryLink) && (
         <div className="flex items-center justify-center space-x-7 mt-3">
+          {primaryLink && (
           <Link
             href={primaryLink.url}
             className="text-apple-link-blue text-md hover:underline flex items-center"
@@ -70,6 +73,7 @@ export default function ProductPromo({
               </svg>
             </span>
           </Link>
+          )}
 
           {secondaryLink && (
             <Link
@@ -85,16 +89,22 @@ export default function ProductPromo({
             </Link>
           )}
         </div>
+        )}
       </div>
+      
 
       {/* Background image */}
-      <div className="absolute inset-0 z-10 mt-[100px]">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-contain"
-        />
+      <div className="mt-auto w-full flex justify-center">
+        <div className="relative w-full md:w-auto flex justify-center">
+          <Image
+            src={image}
+            alt={title}
+            width={600}
+            height={450}
+            className="object-contain w-auto h-auto max-w-full"
+            priority
+          />
+        </div>
       </div>
     </div>
   );

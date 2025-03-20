@@ -131,10 +131,10 @@
 /* Apple-specific styles */
 @layer components {
   .nav-link {
-    @apply opacity-80 hover:opacity-100 transition-opacity duration-200;
+    @apply opacity-80 hover:opacity-100 duration-500 transition-all text-lg hover:text-xl ease-in-out;
   }
 
-  .apple-container {
+  .normal-container {
     @apply mx-auto px-4 max-w-[980px];
   }
 }
