@@ -282,7 +282,7 @@ export default function ResearchDirections() {
                     Non-cartesian Trajectory
                   </h3>
                   <p className="text-gray-300">
-                    Our fast acquisition techniques enable continuous imaging during interventions, providing doctors with immediate visual feedback.
+                  By carefully planning the sampling trajectory, non-Cartesian imaging acquires more data every excitation compared to conventional Cartesian sampling. This technique can be applied to various MRI scenario, including MR-guided radiotherapy (MRgRT), mapping, structural imaging.
                   </p>
                 </div>
               </div>

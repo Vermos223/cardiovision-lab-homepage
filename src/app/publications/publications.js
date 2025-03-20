@@ -1,5 +1,3 @@
-import { InlineMath } from 'react-katex';
-
 export const Publications = [
     {
       id: 1,
@@ -34,7 +32,7 @@ export const Publications = [
       journal: "ISMRM, 2023",
       year: 2023,
       type: "abstract",
-      image: "/images/publication3.jpg",
+      image: "/images/publication/3.jpg",
       links: [
         { label: "PDF", url: "/publications/paper3.pdf" },
         { label: "LINK", url: "https://archive.ismrm.org/2023/0711.html" }
@@ -47,7 +45,7 @@ export const Publications = [
       journal: "ISMRM, 2024",
       year: 2024,
       type: "abstract",
-      image: "/images/publication4.jpg",
+      image: "/images/publication/4.jpg",
       links: [
         { label: "PDF", url: "/publications/paper4.pdf" },
         { label: "Link", url: "https://archive.ismrm.org/2024/4507_FouJyYQyz.html" }
@@ -60,7 +58,7 @@ export const Publications = [
       journal: "ISMRM, 2024",
       year: 2024,
       type: "abstract",
-      image: "/images/publication5.jpg",
+      image: "/images/publication/5.jpg",
       links: [
         { label: "PDF", url: "/publications/paper5.pdf" },
         { label: "LINK", url: "https://archive.ismrm.org/2024/3947_YN62buQr2.html" }
@@ -235,6 +233,20 @@ export const Publications = [
         // { label: "LINK", url: "https://doi.org/10.1002/mrm.29417" }
       ]
     },
+    {
+      id: 19,
+      title: "Predicting Late Gadolinium Enhancement of Acute Myocardial Infarction in Contrast-free Cardiac Cine MRI using Deep Generative Learning",
+      authors: "Pengfang Qian, Junwei Yang, Zijian Zhou, Peng Hu, Haikun Qi",
+      journal: "ISMRM, 2024",
+      year: 2024,
+      type: "abstract",
+      image: "/images/publication/19.jpg",
+      links: [
+        { label: "PDF", url: "/publications/paper19.pdf" },
+        { label: "LINK", url: "https://archive.ismrm.org/2024/1500.html" }
+      ]
+    },
+
   ];
 
   export default Publications;

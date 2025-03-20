@@ -38,11 +38,23 @@ export default function Hero({
   const contentRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [contentStyle, setContentStyle] = useState<React.CSSProperties>({});
+  const [isMobile, setIsMobile] = useState(false);
 
   // 分割标题
   const titleParts = title.split(' ');
   const firstLine = titleParts[0]; // "ShanghaiTech"
   const secondLine = titleParts.slice(1).join(' '); // "CardioVision LAB"
+  
+  // 检测是否为移动设备
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // 监听页面滚动
   useEffect(() => {
@@ -52,12 +64,17 @@ export default function Hero({
       const heroRect = heroRef.current.getBoundingClientRect();
       const contentRect = contentRef.current.getBoundingClientRect();
       const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
       
       // 计算滚动进度 - 用于标题的渐进式变化
       // 使用0-100px的滚动距离作为0-1的进度值
       const maxScrollForTitleTransform = 30; 
       let titleProgress = Math.min(scrollY / maxScrollForTitleTransform, 1);
+      
+      // 如果是移动设备，则直接设置为完全滚动状态
+      if (isMobile) {
+        titleProgress = 1;
+      }
+      
       setScrollProgress(titleProgress);
       
       // 计算内容位置的逻辑
@@ -105,7 +122,7 @@ export default function Hero({
     
     // 确保组件卸载时移除事件监听
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobile]);
 
   // 根据 imageSize 确定图片容器类名
   const getImageContainerClass = () => {
@@ -120,28 +137,39 @@ export default function Hero({
 
   // 计算标题样式 - 根据滚动进度平滑过渡
   const titleContainerStyle: React.CSSProperties = {
-    textAlign: scrollProgress < 0.1 ? 'center' : 'left',  // 降低这个值会使标题在更早的滚动阶段开始左对齐
+    textAlign: scrollProgress < 0.1 ? 'center' : 'left',
     transform: scrollProgress < 0.3 
       ? `translateX(${-50 * scrollProgress}%)` 
       : 'translateX(0)',
-    transition: 'all 1.0s cubic-bezier(0.165, 0.84, 0.44, 1)'
+    transition: isMobile ? 'none' : 'all 1.0s cubic-bezier(0.165, 0.84, 0.44, 1)',
+    // 为移动端添加额外内边距，防止内容溢出
+    paddingLeft: isMobile ? '16px' : '0'
+  };
+
+  // 根据设备类型计算字体大小
+  const getTitleFontSize = () => {
+    if (isMobile) {
+      return scrollProgress < 0.5 ? '3rem' : '2.5rem'; // 移动端更小的字体
+    } else {
+      return `calc(5rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`;
+    }
   };
 
   // 标题第一部分的样式
   const firstLineStyle: React.CSSProperties = {
     opacity: 1,
-    fontSize: `calc(4rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`, // 字体大小随滚动变化
+    fontSize: getTitleFontSize(),
     display: 'inline-block',
     marginRight: scrollProgress < 0.5 ? '0.5rem' : '0',
-    transition: 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
+    transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
   };
 
   // 标题第二部分的样式
   const secondLineStyle: React.CSSProperties = {
     opacity: 1,
-    fontSize: `calc(4rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`,
+    fontSize: getTitleFontSize(),
     display: scrollProgress < 0.5 ? 'inline-block' : 'block',
-    transition: 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
+    transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
   };
 
   return (
@@ -153,10 +181,13 @@ export default function Hero({
       {/* 文本内容容器 */}
       <div 
         ref={contentRef}
-        className="z-20 w-full px-6 md:px-12 pt-10"
+        className="z-20 w-full px-4 md:px-12 pt-10" // 调整了移动端的padding
         style={contentStyle}
       >
-        <div style={titleContainerStyle}>
+        <div 
+          className="w-full"
+          style={titleContainerStyle}
+        >
           {/* 标题始终保持两部分，但样式随滚动变化 */}
           <h2 className={`font-semibold ${textColorClass}`} style={firstLineStyle}>
             {firstLine}
@@ -165,19 +196,21 @@ export default function Hero({
             {secondLine}
           </h2>
           
-          <h3 className={`text-xl md:text-2xl lg:text-3xl font-medium ${textColorClass} transition-all duration-500`}
+          <h3 className={`text-xl md:text-2xl lg:text-3xl font-medium ${textColorClass}`}
                style={{
                  textAlign: scrollProgress < 0.3 ? 'center' : 'left',
-                 transition: 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
+                 transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)',
+                 maxWidth: '100%' // 确保不会超出容器
                }}>
             {subtitle}
           </h3>
           
           {description && (
-            <p className={`mt-3 text-base md:text-lg ${textColorClass} transition-all duration-500`}
+            <p className={`mt-3 text-base md:text-lg ${textColorClass}`}
                style={{
                  textAlign: scrollProgress < 0.5 ? 'center' : 'left',
-                 transition: 'all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)'
+                 transition: isMobile ? 'none' : 'all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)',
+                 maxWidth: '100%' // 确保不会超出容器
                }}>
               {description}
             </p>
@@ -185,15 +218,16 @@ export default function Hero({
 
           {/* Links */}
           {(primaryLink || secondaryLink) && (
-            <div className={`flex items-center space-x-7 mt-4 transition-all duration-500`}
+            <div className={`flex items-center mt-4 ${isMobile ? 'flex-col space-y-2' : 'space-x-7'}`}
                  style={{
                    justifyContent: scrollProgress < 0.5 ? 'center' : 'flex-start',
-                   transition: 'all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)'
+                   alignItems: isMobile ? 'flex-start' : 'center',
+                   transition: isMobile ? 'none' : 'all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)'
                  }}>
               {primaryLink && (
                 <Link
                   href={primaryLink.url}
-                  className="text-apple-link-blue text-xl hover:underline flex items-center"
+                  className="text-apple-link-blue text-lg md:text-xl hover:underline flex items-center"
                 >
                   {primaryLink.text}
                   <span className="ml-1">
@@ -207,7 +241,7 @@ export default function Hero({
               {secondaryLink && (
                 <Link
                   href={secondaryLink.url}
-                  className="text-apple-link-blue text-xl hover:underline flex items-center"
+                  className="text-apple-link-blue text-lg md:text-xl hover:underline flex items-center"
                 >
                   {secondaryLink.text}
                   <span className="ml-1">

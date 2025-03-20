@@ -42,9 +42,32 @@ export default function PublicationsPage() {
 
   // 初始化过滤后的出版物状态，默认为排序后的所有出版物
   const [filteredPublications, setFilteredPublications] = useState(() => {
-    // 按年份降序排序（最新的在前面）
-    return [...allPublications].sort((a, b) => b.year - a.year);
+    // 按年份降序排序（最新的在前面），同年份内按类型排序（journal > conference > abstract）
+    return [...allPublications].sort((a, b) => {
+      if (a.year !== b.year) {
+        return b.year - a.year; // 年份降序
+      }
+      
+      // 同年份按类型优先级排序
+      const typeOrder = { journal: 1, conference: 2, abstract: 3 };
+      return (typeOrder[a.type as keyof typeof typeOrder] || 99) - 
+             (typeOrder[b.type as keyof typeof typeOrder] || 99);
+    });
   });
+
+  const availableTypes = useMemo(() => {
+    const types = [...new Set(allPublications.map(pub => pub.type))];
+    return types.sort(); // 按字母顺序排序类型
+  }, [allPublications]);
+
+  const typeDisplayNames = {
+    journal: "Journal Articles",
+    conference: "Conference Papers",
+    abstract: "Abstract",
+    book: "Book Chapters",
+    thesis: "Theses"
+    // 可以根据需要添加更多类型
+  };
 
   // 过滤和排序文章
   useEffect(() => {
@@ -60,12 +83,21 @@ export default function PublicationsPage() {
       results = results.filter(pub => pub.type === typeFilter);
     }
     
-    // 按年份降序排序（最新的在前面）
-    results.sort((a, b) => b.year - a.year);
+    // 按年份降序排序（最新的在前面），同年份内按类型排序
+    results.sort((a, b) => {
+      if (a.year !== b.year) {
+        return b.year - a.year; // 年份降序
+      }
+      
+      // 同年份按类型优先级排序
+      const typeOrder = { journal: 1, conference: 2, abstract: 3 };
+      return (typeOrder[a.type as keyof typeof typeOrder] || 99) - 
+             (typeOrder[b.type as keyof typeof typeOrder] || 99);
+    });
     
     setFilteredPublications(results);
     setCurrentPage(1); // 重置到第一页
-  }, [yearFilter, typeFilter]);
+  }, [yearFilter, typeFilter, allPublications]);
 
   // 处理年份筛选变化
   const handleYearFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -90,7 +122,7 @@ export default function PublicationsPage() {
   const maxPageButtons = 5; // 最多显示的页码按钮数
   
   let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-  let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+  const endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
   
   if (endPage - startPage + 1 < maxPageButtons && startPage > 1) {
     startPage = Math.max(1, endPage - maxPageButtons + 1);
@@ -153,11 +185,11 @@ export default function PublicationsPage() {
                 onChange={handleTypeFilterChange}
               >
                 <option value="all">All Types</option>
-                <option value="journal">Journal Articles</option>
-                <option value="conference">Conference Papers</option>
-                {/* <option value="book">Book Chapters</option> */}
-                {/* <option value="thesis">Theses</option> */}
-                <option value="abstract">Abstract</option>
+                {availableTypes.map(type => (
+                  <option key={type} value={type}>
+                    {typeDisplayNames[type as keyof typeof typeDisplayNames] || type.charAt(0).toUpperCase() + type.slice(1)}
+                  </option>
+                ))}
               </select>
             </div>
             

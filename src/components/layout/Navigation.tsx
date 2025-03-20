@@ -169,7 +169,7 @@ export default function Navigation() {
             <Link href="/" className="text-white" aria-label="Fruit">
               <Image
                 src="/images/homepage/cv1.jpg"
-                alt="Fruit"
+                alt="cardiovisionlab"
                 width={96}
                 height={96}
                 className="h-[32px] w-auto"

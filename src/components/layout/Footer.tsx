@@ -20,7 +20,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-base text-gray-900 mb-3">Other Team</h3>
             <ul className="space-y-2">
-              <li><Link href="https://idea.bme.shanghaitech.edu.cn/14445/list.htm" className="hover:underline">IDEA Lab</Link></li>
+              <li><Link href="https://idea.bme.shanghaitech.edu.cn/main.htm" className="hover:underline">IDEA Lab</Link></li>
               <li><Link href="https://shanghaitech-impact.github.io/" className="hover:underline">IMPACT Lab</Link></li>
               <li><Link href="https://qianwang.space/" className="hover:underline">MIIL</Link></li>
             </ul>

@@ -9,10 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fruit",
-  description: "Fruit clone website",
+  title: "CardioVisionLab",
+  description: "CardioVisionLab is a medical technology company that provides a platform for remote monitoring of patients with cardiovascular diseases.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/navigation/cv2_square_icon.png",
   },
 };
 

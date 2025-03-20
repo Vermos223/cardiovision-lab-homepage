@@ -55,7 +55,7 @@ export default function IPhonePage() {
       description: 'A postgraduate student focusing on MRI sequence design.'
     },
     {
-      icon: '/images/members/ruiluo.jpg',
+      icon: '/images/members/jianqiuwu.jpg',
       title: 'Jianqiu Wu',
       description: 'A master student focusing on MRI Reconstruction.'
     }
