@@ -131,7 +131,7 @@
 /* Apple-specific styles */
 @layer components {
   .nav-link {
-    @apply opacity-80 hover:opacity-100 duration-500 transition-all text-lg hover:text-xl ease-in-out;
+    @apply opacity-80 hover:opacity-100 duration-700 transition-all text-lg hover:text-xl ease-in-out;
   }
 
   .normal-container {

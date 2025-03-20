@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -31,38 +30,20 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
         <nav className="text-white">
           <ul className="space-y-6">
             <li>
-              <Link href="/" className="text-lg" onClick={onClose}>HOME</Link>
+              <Link href="/" className="text-3xl" onClick={onClose}>HOME</Link>
             </li>
             <li>
-              <Link href="/research" className="text-lg" onClick={onClose}>RESEARCH</Link>
+              <Link href="/research" className="text-3xl" onClick={onClose}>RESEARCH</Link>
             </li>
             <li>
-              <Link href="/publications" className="text-lg" onClick={onClose}>PUBLICATIONS</Link>
+              <Link href="/publications" className="text-3xl" onClick={onClose}>PUBLICATIONS</Link>
             </li>
             <li>
-              <Link href="/groupmembers" className="text-lg" onClick={onClose}>GROUP MEMBERS</Link>
+              <Link href="/groupmembers" className="text-3xl" onClick={onClose}>GROUP</Link>
             </li>
             <li>
-              <Link href="/contactus" className="text-lg" onClick={onClose}>CONTACT US</Link>
+              <Link href="/contactus" className="text-3xl" onClick={onClose}>CONTACT</Link>
             </li>
-            {/* <li>
-              <Link href="/vision" className="text-lg" onClick={onClose}>Vision</Link>
-            </li>
-            <li>
-              <Link href="/airpods" className="text-lg" onClick={onClose}>AirPods</Link>
-            </li>
-            <li>
-              <Link href="/tv-home" className="text-lg" onClick={onClose}>TV & Home</Link>
-            </li>
-            <li>
-              <Link href="/entertainment" className="text-lg" onClick={onClose}>Entertainment</Link>
-            </li>
-            <li>
-              <Link href="/accessories" className="text-lg" onClick={onClose}>Accessories</Link>
-            </li>
-            <li>
-              <Link href="/support" className="text-lg" onClick={onClose}>Support</Link>
-            </li> */}
           </ul>
         </nav>
 
@@ -130,14 +111,14 @@ export default function Navigation() {
   };
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 10);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
   // Close dropdowns when mobile menu opens
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -161,9 +142,7 @@ export default function Navigation() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50">
-      <nav className={`transition-colors duration-300 ${
-    isScrolled ? 'bg-apple-nav backdrop-blur-md' : 'bg-black'
-  }`}>
+      <nav className="bg-apple-nav/85 backdrop-blur-lg">
           <div className="max-w-[1024px] h-[44px] mx-auto flex items-center justify-between px-5 md:px-8">
             {/* Fruit Logo */}
             <Link href="/" className="text-white" aria-label="Fruit">
@@ -244,14 +223,8 @@ export default function Navigation() {
               <Link href="/" className="text-white text-lg nav-link">HOME</Link>
               <Link href="/research" className="text-white text-lg nav-link">RESEARCH</Link>
               <Link href="/publications" className="text-white text-lg nav-link">PUBLICATIONS</Link>
-              <Link href="/groupmembers" className="text-white text-lg nav-link">GROUP MEMBERS</Link>
-              <Link href="/contactus" className="text-white text-lg nav-link">CONTACT US</Link>
-              {/* <Link href="/airpods" className="text-white text-xs nav-link">AirPods</Link>
-              <Link href="/airpods" className="text-white text-xs nav-link">AirPods</Link>
-              <Link href="/tv-home" className="text-white text-xs nav-link">TV & Home</Link>
-              <Link href="/entertainment" className="text-white text-xs nav-link">Entertainment</Link>
-              <Link href="/accessories" className="text-white text-xs nav-link">Accessories</Link>
-              <Link href="/support" className="text-white text-xs nav-link">Support</Link> */}
+              <Link href="/groupmembers" className="text-white text-lg nav-link">GROUP</Link>
+              <Link href="/contactus" className="text-white text-lg nav-link">CONTACT</Link>
             </div>
 
             {/* Search and Bag Icons */}

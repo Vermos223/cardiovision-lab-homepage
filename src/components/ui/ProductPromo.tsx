@@ -95,13 +95,12 @@ export default function ProductPromo({
 
       {/* Background image */}
       <div className="mt-auto w-full flex justify-center">
-        <div className="relative w-full md:w-auto flex justify-center">
+        <div className="relative w-[50%] md:w-[300px] h-[200px] md:h-[200px]">
           <Image
             src={image}
             alt={title}
-            width={600}
-            height={450}
-            className="object-contain w-auto h-auto max-w-full"
+            fill={true}
+            className="object-contain"
             priority
           />
         </div>

@@ -8,14 +8,11 @@ import { InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 
 function renderMathTitle(title: string) {
-  // 匹配$$之间的内容
   const parts = title.split(/(\$\$.*?\$\$)/g);
-  
   return (
     <>
       {parts.map((part, index) => {
         if (part.startsWith('$$') && part.endsWith('$$')) {
-          // 提取数学内容 (去掉$$符号)
           const mathContent = part.slice(2, -2);
           return <InlineMath key={index} math={mathContent} />;
         }
@@ -38,7 +35,7 @@ export default function PublicationsPage() {
     const years = [...new Set(allPublications.map(pub => pub.year))];
     return years.sort((a, b) => b - a); // 降序排序，最新的年份在前
   }, [allPublications]);
- 
+
 
   // 初始化过滤后的出版物状态，默认为排序后的所有出版物
   const [filteredPublications, setFilteredPublications] = useState(() => {
@@ -46,6 +43,9 @@ export default function PublicationsPage() {
     return [...allPublications].sort((a, b) => {
       if (a.year !== b.year) {
         return b.year - a.year; // 年份降序
+      }
+      if (a.month && b.month && a.month !== b.month) {
+        return b.month - a.month; // 月份降序（较新的月份排在前面）
       }
       
       // 同年份按类型优先级排序
@@ -242,6 +242,7 @@ export default function PublicationsPage() {
                     
                     <div className="flex gap-2">
                       {publication.links.map((link, index) => (
+                        link.label !== "PDF" ?(
                         <Link 
                           key={index}
                           href={link.url} 
@@ -250,7 +251,7 @@ export default function PublicationsPage() {
                           rel="noopener noreferrer"
                         >
                           {link.label}
-                        </Link>
+                        </Link>) : null
                       ))}
                     </div>
                   </div>

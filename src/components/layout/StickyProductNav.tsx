@@ -37,7 +37,7 @@ export default function StickyProductNav({
 
   return (
     <div
-      className={`w-full bg-white z-40 transition-all duration-300 ${
+      className={`w-full bg-black z-40 transition-all duration-300 ${
         isSticky ? 'fixed top-0 shadow-md' : 'relative'
       }`}
     >

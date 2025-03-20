@@ -63,7 +63,7 @@ export default function Home() {
               title="Accelerating MR for Treatment Guidance"
               subtitle="Real-time MR imaging with advanced acceleration techniques integrated with trajectory optimization for precise, adaptive guidance of cardiac interventions and therapeutic procedures."
               primaryLink={{ text: "Learn More", url: "/research#accelerating-mr" }}
-              image="/images/homepage/mrguided.jpg"
+              image="/images/homepage/realtime.jpg"
               darkText={true}
               bgColor="#ffffff"
               isSmall={true}

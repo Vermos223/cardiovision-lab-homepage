@@ -3,8 +3,9 @@ export const Publications = [
       id: 1,
       title: "Free-breathing non-contrast T1$$\\rho$$ dispersion magnetic resonance imaging of myocardial interstitial fibrosis in comparison with extracellular volume fraction",
       authors: "Q Miao, S Hua, Y Gong, Z Lyu, P Qian, C Liu, W Jin, P Hu, H Qi",
-      journal: "Journal of Cardiovascular Magnetic Resonance, 2024",
+      journal: "Journal of Cardiovascular Magnetic Resonance",
       year: 2024,
+      month:10,
       type: "journal",
       image: "/images/publication/1.jpg",
       links: [
@@ -18,6 +19,7 @@ export const Publications = [
       authors: "Zhenfeng Lv, Lianming Wu, Jilei Zhang, Weibo Chen, Haikun Qi",
       journal: "ISMRM, 2022",
       year: 2022,
+      month:6,
       type: "abstract",
       image: "/images/publication/2.jpg",
       links: [
@@ -31,6 +33,7 @@ export const Publications = [
       authors: "Pengfang Qian, Junwei Yang, Zijian Zhou, Peng Hu, Haikun Qi",
       journal: "ISMRM, 2023",
       year: 2023,
+      month:6,
       type: "abstract",
       image: "/images/publication/3.jpg",
       links: [
@@ -44,6 +47,7 @@ export const Publications = [
       authors: "Chun Liu, Peng Hu, Haikun Qi",
       journal: "ISMRM, 2024",
       year: 2024,
+      month:5,
       type: "abstract",
       image: "/images/publication/4.jpg",
       links: [
@@ -57,6 +61,7 @@ export const Publications = [
       authors: "Qinfang Miao, Wenjing Zhao, Zhaoying Wen, Haikun Qi",
       journal: "ISMRM, 2024",
       year: 2024,
+      month:5,
       type: "abstract",
       image: "/images/publication/5.jpg",
       links: [
@@ -70,6 +75,7 @@ export const Publications = [
       authors: "Hanxi Liao, Chun Liu, Peng Hu, Haikun Qi",
       journal: "ISMRM, 2024",
       year: 2024,
+      month:5,
       type: "abstract",
       image: "/images/publication/6.jpg",
       links: [
@@ -79,10 +85,11 @@ export const Publications = [
     },
     {
       id: 7,
-      title: "High-resolution free-breathing simultaneous myocardial T1, T2 and T1ρ mapping with region-optimized virtual coils (ROVir)",
+      title: "High-resolution free-breathing simultaneous myocardial T1, T2 and T1$\\rho$$$ mapping with region-optimized virtual coils (ROVir)",
       authors: "Zhenfeng Lyu, Sha Hua, Peng Hu, Haikun Qi",
       journal: "ISMRM, 2024",
       year: 2024,
+      month:5,
       type: "abstract",
       image: "/images/publication/7.jpg",
       links: [
@@ -94,8 +101,9 @@ export const Publications = [
       id: 8,
       title: "3D B1+ corrected simultaneous myocardial T1 and T1$$\\rho$$ mapping with subject-specific respiratory motion correction and water-fat separation",
       authors: "Haikun Qi, Zhenfeng Lv, Jiameng Diao, Xiaofeng Tao, Junpu Hu, Jian Xu, René Botnar, Claudia Prieto, Peng Hu",
-      journal: "Magnetic Resonance in Medicine, 2025",
-      year: 2025,
+      journal: "Magnetic Resonance in Medicine",
+      year: 2024,
+      month:10,
       type: "journal",
       image: "/images/publication/8.jpg",
       links: [
@@ -109,6 +117,7 @@ export const Publications = [
       authors: "Zhenfeng Lyu, Sha Hua, Yiwen Gong, Peng Hu, Haikun Qi",
       journal: "ISMRM, 2024",
       year: 2024,
+      month:5,
       type: "abstract",
       image: "/images/publication/9.jpg",
       links: [
@@ -120,8 +129,9 @@ export const Publications = [
       id: 10,
       title: "Joint group-wise motion estimation and segmentation of cardiac cine MR images using recurrent U-Net",
       authors: "Pengfang Qian, Junwei Yang, Pietro Lió, Peng Hu, Haikun Qi",
-      journal: "Medical Image Understanding and Analysis, 2022",
+      journal: "Medical Image Understanding and Analysis",
       year: 2022,
+      month:5,
       type: "conference",
       image: "/images/publication/10.jpg",
       links: [
@@ -135,6 +145,7 @@ export const Publications = [
       authors: "Qinfang Miao, Zhenfeng Lv, Sha Hua, Zhongqi Zhang, Jian Xu, Peng Hu, Haikun Qi",
       journal: "ISMRM, 2023",
       year: 2023,
+      month:6,
       type: "abstract",
       image: "/images/publication/11.jpg",
       links: [
@@ -148,6 +159,7 @@ export const Publications = [
       authors: "Pengfang Qian, Zijian Zhou, Peng Hu, Haikun Qi",
       journal: "2024 IEEE International Symposium on Biomedical Imaging (ISBI)",
       year: 2024,
+      month:5,
       type: "conference",
       image: "/images/publication/12.jpg",
       links: [
@@ -159,8 +171,9 @@ export const Publications = [
       id: 13,
       title: "Predicting late gadolinium enhancement of acute myocardial infarction in contrast-free cardiac cine MRI using deep generative learning",
       authors: "Haikun Qi, Pengfang Qian, Langlang Tang, Binghua Chen, Dongaolei An, Lian-Ming Wu",
-      journal: "Circulation: Cardiovascular Imaging, 2024",
+      journal: "Circulation: Cardiovascular Imaging",
       year: 2024,
+      month: 10,
       type: "journal",
       image: "/images/publication/13.jpg",
       links: [
@@ -174,6 +187,7 @@ export const Publications = [
       authors: "Haikun Qi, Zhenfeng Lv, Jian Xu, Peng Hu",
       journal: "ISMRM, 2023",
       year: 2023,
+      month:6,
       type: "abstract",
       image: "/images/publication/14.jpg",
       links: [
@@ -185,8 +199,9 @@ export const Publications = [
       id: 15,
       title: "Free-breathing simultaneous native myocardial T1, T2 and T1$$\\rho$$ mapping with Cartesian acquisition and dictionary matching",
       authors: "Zhenfeng Lyu, Sha Hua, Jian Xu, Yiwen Shen, Rui Guo, Peng Hu, Haikun Qi",
-      journal: "Journal of Cardiovascular Magnetic Resonance, 2023",
+      journal: "Journal of Cardiovascular Magnetic Resonance",
       year: 2023,
+      month:2,
       type: "journal",
       image: "/images/publication/15.jpg",
       links: [
@@ -198,8 +213,9 @@ export const Publications = [
         id: 16,
         title: "A survey of emerging applications of diffusion probabilistic models in MRI",
         authors: "Yuheng Fan, Hanxi Liao, Shiqi Huang, Yimin Luo, Huazhu Fu, Haikun Qi",
-        journal: "Meta-Radiology, 2024",
+        journal: "Meta-Radiology",
         year: 2024,
+        month: 6,
         type: "journal",
         image: "/images/publication/16.jpg",
         links: [
@@ -211,8 +227,9 @@ export const Publications = [
       id: 17,
       title: "Accelerated 3D free‐breathing high‐resolution myocardial T1$$\\rho$$ mapping at 3 Tesla",
       authors: "Haikun Qi, Zhenfeng Lv, Junpu Hu, Jian Xu, René Botnar, Claudia Prieto, Peng Hu",
-      journal: "Magnetic Resonance in Medicine, 2022",
+      journal: "Magnetic Resonance in Medicine",
       year: 2022,
+      month: 8,
       type: "journal",
       image: "/images/publication/17.jpg",
       links: [
@@ -222,10 +239,11 @@ export const Publications = [
     },
     {
       id: 18,
-      title: "SRMapping: A Super-Resolution Network with Multi-Level Fine-Grained Feature Fusion for Cardiac MR T1 Mapping",
-      authors: "Haikun Qi, Zhenfeng Lv, Junpu Hu, Jian Xu, René Botnar, Claudia Prieto, Peng Hu",
-      journal: "Magnetic Resonance in Medicine, 2022",
+      title: "SRMapping: A Super-Resolution Network with Multi-Level Fine-Grained Feature Fusion for Cardiac MR T1 Mappin",
+      authors: "Chun Liu, Hanxi Liao, Zhenfeng Lv, Yimin Luo, Haikun Qi",
+      journal: "SPIE Medical Imaging, 2025",
       year: 2025,
+      month: 2,
       type: "conference",
       image: "/images/publication/18.jpg",
       links: [

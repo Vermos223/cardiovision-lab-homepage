@@ -50,7 +50,6 @@ export default function Hero({
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -149,7 +148,7 @@ export default function Hero({
   // 根据设备类型计算字体大小
   const getTitleFontSize = () => {
     if (isMobile) {
-      return scrollProgress < 0.5 ? '3rem' : '2.5rem'; // 移动端更小的字体
+      return '3rem'; // 移动端更小的字体,在6.1英寸测出来3rem的效果还可以，4rem会有字体超出
     } else {
       return `calc(5rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`;
     }
@@ -197,11 +196,16 @@ export default function Hero({
           </h2>
           
           <h3 className={`text-xl md:text-2xl lg:text-3xl font-medium ${textColorClass}`}
-               style={{
-                 textAlign: scrollProgress < 0.3 ? 'center' : 'left',
-                 transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)',
-                 maxWidth: '100%' // 确保不会超出容器
-               }}>
+              style={{
+                textAlign: scrollProgress < 0.5 ? 'center' : 'left', // 匹配title分段的临界点
+                transform: scrollProgress < 0.3 
+                  ? 'translateX(0)' 
+                  : scrollProgress < 0.5 
+                    ? `translateX(${-15 * (scrollProgress - 0.3) / 0.2}%)` // 平滑过渡
+                    : 'translateX(0)', // 左对齐后不需要额外平移
+                transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.33, 1, 0.68, 1)', // 改进的曲线
+                maxWidth: '100%'
+              }}>
             {subtitle}
           </h3>
           

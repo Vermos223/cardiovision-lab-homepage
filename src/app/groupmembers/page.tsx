@@ -184,7 +184,7 @@ export default function IPhonePage() {
               </div>
               <h3 className="font-semibold text-xl mb-2">Cutting-Edge Resources</h3>
               <p className="text-gray-600 text-sm">
-              Access to world-class infrastructure including advanced 3T and 5T MRI scanners, powerful GPU computing resources, and dedicated HPC clusters with A100 GPUs for deep learning research, providing all the tools needed for breakthrough discoveries.
+              Access to world-class infrastructure including advanced 3T, 5T and 9.4T MRI scanners, powerful GPU computing resources, and dedicated HPC clusters with A100 GPUs for deep learning research, providing all the tools needed for breakthrough discoveries.
               </p>
             </div>
 
