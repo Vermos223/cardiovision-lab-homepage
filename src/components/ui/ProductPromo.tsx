@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface ProductPromoProps {
   title: string;
   subtitle: string;
@@ -43,7 +43,7 @@ export default function ProductPromo({
       <div className={`z-20 text-center ${textColorClass} mt-10`}>
         {logoImage ? (
           <div className="mx-auto h-16 mb-3 flex items-center justify-center">
-            <Image
+            <GlobalImage
               src={logoImage}
               alt={`${title} logo`}
               width={160}
@@ -96,7 +96,7 @@ export default function ProductPromo({
       {/* Background image */}
       <div className="mt-auto w-full flex justify-center">
         <div className="relative w-[50%] md:w-[300px] h-[200px] md:h-[200px]">
-          <Image
+          <GlobalImage
             src={image}
             alt={title}
             fill={true}

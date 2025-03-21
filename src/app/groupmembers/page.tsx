@@ -8,6 +8,7 @@ import Hero from '../../components/ui/Hero';
 import Image from 'next/image';
 import Link from 'next/link';
 import ImageSlideshow from './imageslide';
+import GlobalImage from '../../components/common/GlobalImage';
 
 export default function IPhonePage() {
   const PHDStudents = [
@@ -92,7 +93,7 @@ export default function IPhonePage() {
               {/* 导师照片 */}
               <div className="w-full lg:w-1/3">
                 <div className="relative aspect-square max-w-sm mx-auto overflow-hidden rounded-lg">
-                  <Image 
+                  <GlobalImage 
                     src="/images/members/haikunqi.jpg" 
                     alt="Dr. Haikun Qi" 
                     width={150} 

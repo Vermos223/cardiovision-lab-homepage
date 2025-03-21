@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface FeatureProps {
   icon: string;
   title: string;
@@ -12,7 +12,7 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, iconSize=48
   return (
     <div className="flex flex-col items-center text-center max-w-xs mx-auto">
       <div className={"mb-4 relative"} style={{width: `${iconSize}px`, height: `${iconSize}px`}}>
-        <Image
+        <GlobalImage
           src={icon}
           alt={title}
           width={iconSize}

@@ -2,7 +2,7 @@ import Layout from "../components/layout/Layout";
 import Hero from "../components/ui/Hero";
 import ProductPromo from "../components/ui/ProductPromo";
 import Image from "next/image";
-
+import GlobalImage from '../components/common/GlobalImage';
 export default function Home() {
   return (
     <Layout>
@@ -33,7 +33,7 @@ export default function Home() {
             </div>
             <div className="rounded-xl overflow-hidden shadow-xl">
               <div className="relative h-72 w-full">
-                <Image
+                <GlobalImage
                   src="/images/homepage/cmr_overview.jpg"
                   alt="Cardiac MRI Overview"
                   layout="fill"

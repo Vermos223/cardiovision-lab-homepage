@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface ProductTileProps {
   title: string;
   subtitle: string;
@@ -41,7 +41,7 @@ const ProductTile: React.FC<ProductTileProps> = ({
       {/* Content */}
       <div className={`z-20 text-center ${textColorClass} mt-12 px-5`}>
         {logo ? (
-          <Image
+          <GlobalImage
             src={logo}
             alt={title}
             width={200}
@@ -84,7 +84,7 @@ const ProductTile: React.FC<ProductTileProps> = ({
 
       {/* Background image */}
       <div className="absolute inset-0 z-10 flex items-center justify-center mt-24">
-        <Image
+        <GlobalImage
           src={image}
           alt={title}
           width={500}

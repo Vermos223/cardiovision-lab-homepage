@@ -2,7 +2,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface HeroProps {
   title: string;
   subtitle: string;
@@ -262,7 +262,7 @@ export default function Hero({
       
       {/* Background image */}
       <div className={`absolute z-10 overflow-hidden ${getImageContainerClass()}`}>
-        <Image
+        <GlobalImage
           src={image}
           alt={title}
           fill

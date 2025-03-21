@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface ProductCompareItemProps {
   image: string;
   name: string;
@@ -32,7 +32,7 @@ const ProductCompareItem: React.FC<ProductCompareItemProps> = ({
       )}
 
       <div className="h-[180px] w-full relative mb-6">
-        <Image
+        <GlobalImage
           src={image}
           alt={name}
           fill

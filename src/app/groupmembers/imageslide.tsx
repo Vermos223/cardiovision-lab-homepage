@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface ImageSlideshowProps {
   images: string[];
   interval?: number;
@@ -214,7 +214,7 @@ const ImageSlideshow: React.FC<ImageSlideshowProps> = ({
               key={index}
               className="min-w-full h-full shrink-0 relative"
             >
-              <Image
+              <GlobalImage
                 src={image}
                 alt={`Slide ${index}`}
                 fill

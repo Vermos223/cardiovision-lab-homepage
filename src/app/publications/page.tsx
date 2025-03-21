@@ -6,7 +6,7 @@ import Image from 'next/image';
 import publications from './publications';
 import { InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
-
+import GlobalImage from '../../components/common/GlobalImage';
 function renderMathTitle(title: string) {
   const parts = title.split(/(\$\$.*?\$\$)/g);
   return (
@@ -217,7 +217,7 @@ export default function PublicationsPage() {
                     <div className="absolute inset-0 flex items-center justify-center text-gray-400">
                       {publication.image ? (
                         <div className="relative w-full h-full">
-                          <Image 
+                          <GlobalImage 
                             src={publication.image} 
                             alt={publication.title} 
                             fill

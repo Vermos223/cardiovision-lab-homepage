@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import GlobalImage from '../../components/common/GlobalImage';
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
@@ -146,7 +146,7 @@ export default function Navigation() {
           <div className="max-w-[1024px] h-[44px] mx-auto flex items-center justify-between px-5 md:px-8">
             {/* Fruit Logo */}
             <Link href="/" className="text-white" aria-label="Fruit">
-              <Image
+              <GlobalImage
                 src="/images/homepage/cv1.jpg"
                 alt="cardiovisionlab"
                 width={96}

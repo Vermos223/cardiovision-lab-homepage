@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import 'katex/dist/katex.min.css'; // 导入KaTeX CSS
 import { InlineMath } from 'react-katex';
-
+import GlobalImage from '../../components/common/GlobalImage';
 export default function ResearchDirections() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
@@ -55,7 +55,7 @@ export default function ResearchDirections() {
               <div className="bg-white rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition hover:scale-105 h-full flex flex-col" onClick={() => openImageModal("/images/research/B1.png")}>
                 <div className="bg-white rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition hover:scale-105" onClick={() => openImageModal("/images/research/B1.png")}>
                   <div className="flex justify-center">
-                    <Image
+                    <GlobalImage
                       src="/images/research/B1.png"
                       alt="3D B1+ correction"
                       width={0}
@@ -92,7 +92,7 @@ export default function ResearchDirections() {
             <div className="order-4 md:order-4 flex flex-col h-full">
               <div className="bg-white rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition hover:scale-105 h-full flex flex-col" onClick={() => openImageModal("/images/research/multimap_full.jpg")}>
                 <div className="relative flex-grow" style={{ minHeight: "100px" }}>
-                  <Image
+                  <GlobalImage
                     src="/images/research/multimap_small.jpg"
                     alt="3D high-resolution cardiac MRI"
                     layout="fill"
@@ -125,7 +125,7 @@ export default function ResearchDirections() {
             <div className="order-6 md:order-6 flex flex-col h-full">
               <div className="bg-white rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition hover:scale-105 h-full flex flex-col" onClick={() => openImageModal("/images/research/FBMp_MIB.jpg")}>
                 <div className="relative flex-grow" style={{ minHeight: "100px" }}>
-                  <Image
+                  <GlobalImage
                     src="/images/research/FBMp_MIB.jpg"
                     alt="3D high-resolution cardiac MRI"
                     width={0}
@@ -163,7 +163,7 @@ export default function ResearchDirections() {
             <div className="order-8 md:order-8 flex flex-col h-full">
               <div className="bg-white rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition hover:scale-105 h-full flex flex-col" onClick={() => openImageModal("/images/research/SRMapping.jpg")}>
                 <div className="relative flex-grow" style={{ minHeight: "100px" }}>
-                  <Image
+                  <GlobalImage
                     src="/images/research/SRMapping_small.jpg"
                     alt="3D high-resolution cardiac MRI"
                     width={0}
@@ -199,7 +199,7 @@ export default function ResearchDirections() {
             <div className="order-10 md:order-10 flex flex-col h-full">
               <div className="bg-white rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition hover:scale-105 h-full flex flex-col" onClick={() => openImageModal("/images/research/cge.jpg")}>
                 <div className="relative flex-grow" style={{ minHeight: "100px" }}>
-                  <Image
+                  <GlobalImage
                     src="/images/research/cge_small.jpg"
                     alt="3D high-resolution cardiac MRI"
                     width={0}
@@ -225,7 +225,7 @@ export default function ResearchDirections() {
       {/* <section className="py-20 bg-white">
         <div className="container max-w-4xl mx-auto px-6 text-center">
           <div className="relative h-64 w-full mb-10">
-            <Image
+            <GlobalImage
               src=".jpg"
               alt="From Diagnosis to Treatment"
               layout="fill"
@@ -259,7 +259,7 @@ export default function ResearchDirections() {
             <div className="order-2 md:order-1">
               <div className="bg-black rounded-xl overflow-hidden shadow-2xl">
                 <div className="relative h-96 w-full">
-                  <Image
+                  <GlobalImage
                   src="/images/research/3DSpiral3.gif"
                   alt="Real-time MRI guided intervention"
                   layout="fill"
@@ -295,7 +295,7 @@ export default function ResearchDirections() {
                 {/* 第一张图片 */}
                 <div className="flex flex-col">
                   <div className="relative aspect-square w-full bg-black rounded-lg overflow-hidden">
-                    <Image
+                    <GlobalImage
                       src="/images/research/realtime_nufft.gif"
                       alt="Spiral trajectory"
                       layout="fill"
@@ -311,7 +311,7 @@ export default function ResearchDirections() {
                 {/* 第二张图片 */}
                 <div className="flex flex-col">
                   <div className="relative aspect-square w-full bg-black rounded-lg overflow-hidden">
-                    <Image
+                    <GlobalImage
                       src="/images/research/realtime_DL.gif"
                       alt="Guidance visualization"
                       layout="fill"
@@ -366,7 +366,7 @@ export default function ResearchDirections() {
             >
             <div className="bg-white rounded-xl overflow-hidden shadow-2xl hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 w-full">
-                <Image
+                <GlobalImage
                   src="/images/research/publication1.jpg"
                   alt="Publication 1"
                   layout="fill"
@@ -399,7 +399,7 @@ export default function ResearchDirections() {
             >
             <div className="bg-white rounded-xl overflow-hidden shadow-2xl hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 w-full">
-                <Image
+                <GlobalImage
                   src="/images/research/publication2.jpg"
                   alt="Publication 1"
                   layout="fill"
@@ -432,7 +432,7 @@ export default function ResearchDirections() {
             >
             <div className="bg-white rounded-xl overflow-hidden shadow-2xl hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 w-full">
-                <Image
+                <GlobalImage
                   src="/images/research/publication3.jpg"
                   alt="Publication 3"
                   layout="fill"
@@ -578,7 +578,7 @@ export default function ResearchDirections() {
                     </svg>
                   </button>
                   <div className="relative w-full h-[80vh]">
-                    <Image
+                    <GlobalImage
                       src={modalImage}
                       alt="Enlarged image"
                       layout="fill"
