@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import GlobalImage from '../common/GlobalImage';
 
 export default function Footer() {
   return (
@@ -28,7 +29,7 @@ export default function Footer() {
           <div className="flex justify-end">
 
           <div className="w-full max-w-[2600px]">
-            <Image 
+            <GlobalImage 
               src="/images/footer/footer.png"
               alt="Lab logo"
               width={300}
