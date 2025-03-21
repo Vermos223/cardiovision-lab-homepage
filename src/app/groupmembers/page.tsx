@@ -33,7 +33,7 @@ export default function IPhonePage() {
     {
       icon: '/images/members/ruiluo.jpg',
       title: 'Rui Luo',
-      description: 'A postgraduate student focusing on non-Cartesian pulse sequence development and reconstruction. A postgraduate student focusing on non-Cartesian pulse sequence development and reconstruction.'
+      description: 'A postgraduate student focusing on non-Cartesian pulse sequence development and reconstruction.'
     },
     {
       icon: '/images/members/hanxiliao.jpg',
