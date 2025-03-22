@@ -7,10 +7,12 @@ import publications from './publications';
 import { InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import GlobalImage from '../../components/common/GlobalImage';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 function renderMathTitle(title: string) {
   const parts = title.split(/(\$\$.*?\$\$)/g);
-  return (
-    <>
+  return (    <>
       {parts.map((part, index) => {
         if (part.startsWith('$$') && part.endsWith('$$')) {
           const mathContent = part.slice(2, -2);
@@ -28,7 +30,8 @@ export default function PublicationsPage() {
   const [publicationsPerPage] = useState(6);
   const [yearFilter, setYearFilter] = useState('all');
   const [typeFilter, setTypeFilter] = useState('all');
-  
+  const [selectedPublication, setSelectedPublication] = useState<typeof publications[0] | null>(null);
+
   const allPublications = publications;
 
   const availableYears = useMemo(() => {
@@ -193,11 +196,11 @@ export default function PublicationsPage() {
               </select>
             </div>
             
-            <div className="flex-1 md:text-right">
+            {/* <div className="flex-1 md:text-right">
               <Link href="https://scholar.google.com.hk/citations?user=AWI7KUsAAAAJ&hl=zh-CN" className="text-[#3c8dbc] hover:underline">
                 See All
               </Link>
-            </div>
+            </div> */}
           </div>
           
           {/* Results Count */}
@@ -211,7 +214,8 @@ export default function PublicationsPage() {
               currentPublications.map((publication) => (
                 <div 
                   key={publication.id} 
-                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-md hover:scale-105 ease-in-out transition-all duration-300"
+                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-md hover:scale-105 ease-in-out transition-all duration-300 cursor-pointer"
+                  onClick={() => setSelectedPublication(publication)}
                 >
                   <div className="h-48 bg-gray-200 relative">
                     <div className="absolute inset-0 flex items-center justify-center text-gray-400">
@@ -263,7 +267,89 @@ export default function PublicationsPage() {
               </div>
             )}
           </div>
-          
+          {/* 模态框组件 */}
+          {selectedPublication && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedPublication(null)}
+          >
+            <div 
+              className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="p-6">
+                {/* 文章图片 */}
+                {selectedPublication.image && (
+                  <div className="relative h-64 mb-6">
+                    <GlobalImage
+                      src={selectedPublication.image}
+                      alt={selectedPublication.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                )}
+        
+                {/* 文章标题 */}
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  {renderMathTitle(selectedPublication.title)}
+                </h2>
+        
+                {/* 年份 */}
+                <div className="text-lg text-gray-600 mb-2">
+                  {selectedPublication.year}
+                </div>
+        
+                {/* 作者 */}
+                <div className="text-lg text-gray-700 mb-4">
+                  {selectedPublication.authors}
+                </div>
+        
+                {/* 期刊/会议 */}
+                <div className="text-lg italic text-gray-600 mb-6">
+                  {selectedPublication.journal}
+                </div>
+        
+                {/* 摘要 */}
+                {selectedPublication.abstract && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold mb-2">Abstract</h3>
+                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}
+                    components={{
+                      p: ({children}) => <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">{children}</p>
+                    }}>
+                      {selectedPublication.abstract}
+                    </ReactMarkdown>
+                  </div>
+                )}
+        
+                {/* 链接 */}
+                <div className="flex gap-3">
+                  {selectedPublication.links.map((link, index) => link.label!=='PDF'?(
+                    <Link
+                      key={index}
+                      href={link.url}
+                      className="inline-block px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </Link>
+                  ): null)}
+                </div>
+        
+                {/* 关闭按钮 */}
+                <button className="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onClick={() => setSelectedPublication(null)}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          )}
+
           {/* Pagination */}
           {filteredPublications.length > 0 && (
             <div className="flex justify-center my-8">
@@ -322,16 +408,16 @@ export default function PublicationsPage() {
           )}
           
           {/* Additional Information */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
+          {/* <div className="mt-12 pt-8 border-t border-gray-200">
             <h2 className="text-xl text-gray-500 mb-4">Additional Information</h2>
             <div className="prose max-w-none">
               <p>We share our research findings and provide comprehensive documentation on this page for your reference. We warmly welcome you to explore our work while respecting our intellectual property by properly citing our contributions when appropriate. We enthusiastically welcome potential collaborations and invite you to reach out through our “CONTACT US” page.</p>
-              {/* <p className="mt-4">
+              <p className="mt-4">
                 <strong>Citation Policy:</strong> When referencing our work, please cite the corresponding paper using 
                 the provided DOI links. All publications are also listed in our institutional repository.
-              </p> */}
+              </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
     </Layout>

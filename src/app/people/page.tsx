@@ -15,12 +15,12 @@ export default function IPhonePage() {
     {
       icon: '/images/members/zhenfenglv.jpg',
       title: 'Zhenfeng Lyu',
-      description: 'Zhenfeng Lyu (also spelled as Zhenfeng Lv) is currently a second-year Ph.D. student focusing on Free-Breathing Cardiac Simultaneous Multi-Parametric Mapping MRI Technology. His research aims to develop advanced Cardiac MRI techniques to enable simultaneous measurement of multiple parameters (e.g., T1, T2, T1rho, and fat fraction) without breath-holding, enhancing patient comfort, improving acquisition efficiency, and thereby increasing the clinical applicability of quantitative cardiac MRI imaging. '
+      description: 'Zhenfeng Lyu (also spelled as Zhenfeng Lv) is a Ph.D. candidate focusing on developing free-breathing simultaneous cardiac multi-parametric mapping techniques.'
     },
     {
       icon: '/images/members/qinfangmiao.jpg',
       title: 'Qinfang Miao',
-      description: 'Qinfang Miao is a first-year Ph.D. student with a background in Clinical Medicine. Her research focuses on MRI post-processing and clinical applications of various pulse sequences, including T1/T2 mapping, and arterial spin labeling (ASL). She works across multiple field strength platforms, including 3T, 5T, and 9.4T MRI systems. Drawing on her clinical medicine background, she is dedicated to bridging advanced MRI technology with clinical practice, while actively expanding her expertise into pulse sequence development to build stronger connections between MRI technical innovation and clinical applications..'
+      description: 'Qinfang Miao is a Ph.D. candidate with a background in clinical medicine. Her research focuses on designing and applying novel cardiac MR techniques to the diagnosis of complex cardiac diseases. She is also experienced in cardiac MR of small animals.'
     }
   ];
 
@@ -28,44 +28,44 @@ export default function IPhonePage() {
     {
       icon: '/images/members/chunliu.jpg',
       title: 'Chun Liu',
-      description: 'Chun Liu is a third-year master student specializing in deep learning-based accelerated imaging for cardiac quantitative magnetic resonance. Her research focuses on enhancing the efficiency and accuracy of cardiac MR imaging through innovative computational approaches.'
+      description: 'Chun Liu is a master student focusing on enhancing the efficiency and accuracy of cardiac MR imaging through innovative computational approaches.'
     },
     {
       icon: '/images/members/ruiluo.jpg',
       title: 'Rui Luo',
-      description: 'A postgraduate student focusing on non-Cartesian pulse sequence development and reconstruction.'
+      description: 'Rui Luo is a master student with strong background in engineering and mathematics. He is working on developing novel sampling trajectories and non-Cartesian MR reconstruction.'
     },
     {
       icon: '/images/members/hanxiliao.jpg',
       title: 'Hanxi Liao',
-      description: 'My research centers on deep learning based medical image analysis. Specifically, I leverage generative models to tackle visual tasks in MRI, including reconstruction and super-resolution. My current work focuses on virtual enhancement generation and diagnostic modeling for hypertrophic cardiomyopathy based on non-contrast CMR sequences.'
+      description: 'Hanxi Liao is a master student with research interest in developing advanced deep learning models for cardiac MR including reconstruction, super-resolution and virtual native enhancement.'
     },
     {
       icon: '/images/members/hongzhanghuang.jpg',
       title: 'Hongzhang Huang',
-      description: 'A postgraduate student focusing on free-breathing quantitative cardiac MRI techniques.'
+      description: 'Hongzhang Huang is a master student with rich experience in pulse sequence design and motion correction. He is working on developing free-running cardiac MRI techniques.'
     },
     {
       icon: '/images/members/yimingzhu.jpg',
       title: 'Yiming Zhu',
-      description: 'A master student focusing on deep learning based medical image synthesis.'
+      description: 'Yiming Zhu is a master student working on medical image synthesis.'
     },
     {
       icon: '/images/members/yujiechen.jpg',
       title: 'Yujie Chen',
-      description: 'A postgraduate student focusing on MRI sequence design.'
+      description: 'Yujie Chen is a master student focusing on motion correction in cardiac MR.'
     },
     {
       icon: '/images/members/jianqiuwu.jpg',
       title: 'Jianqiu Wu',
-      description: 'A master student focusing on MRI Reconstruction.'
+      description: 'Jianqiu Wu is a master student focusing on real-time MR reconstruction.'
     }
   ];
   const Graduated = [
     {
       icon: '/images/members/pengfangqian.jpg',
       title: 'Pengfang Qian',
-      description: 'He is the first senior student in our research group. His research focuses on deep learning-based image analysis and multi-task models including motion estimation, segmentation, and reconstruction. Additionally, he was the first member in our group to conduct virtual enhancement research achieving impressive research outcomes, and also he established foundational work that influenced other students in our group. Upon graduation, he was recognized as an Outstanding Graduate.'
+      description: 'Pengfang Qian stayed in this group from 2021 to 2024. He was working on applying AI to enhance the performance of cardiac MR. He had developed a novel unified deep learning model for cardiac cine reconstruction, segmentation and motion estimation. The CGE (cine generated enhancement) model developed by him laid the foundation for the following technique development in this direction. After the master degree, he pursued a career in AI.'
     },
   ];
 
@@ -148,21 +148,21 @@ export default function IPhonePage() {
 
       {/* PhD Student */}
       <FeatureShowcase
-        title="PhD Students."
+        title="PhD Students"
         features={PHDStudents}
         bgColor="#f5f5f7"
         iconSize={144}
       />
       {/* MD Student */}
       <FeatureShowcase
-        title="Master Students."
+        title="Master Students"
         features={MDStudents}
         bgColor="#f5f5f7"
         iconSize={144}
       />
       {/* Graduated Student */}
       <FeatureShowcase
-        title="Graduated Students."
+        title="Graduated Students"
         features={Graduated}
         bgColor="#f5f5f7"
         iconSize={144}
@@ -183,9 +183,9 @@ export default function IPhonePage() {
                   <line x1="18" y1="14" x2="18" y2="17"></line>
                 </svg>
               </div>
-              <h3 className="font-semibold text-xl mb-2">Cutting-Edge Resources</h3>
+              <h3 className="font-semibold text-xl mb-2">Abundant Resources</h3>
               <p className="text-gray-600 text-sm">
-              Access to world-class infrastructure including advanced 3T, 5T and 9.4T MRI scanners, powerful GPU computing resources, and dedicated HPC clusters with A100 GPUs for deep learning research, providing all the tools needed for breakthrough discoveries.
+                High-end MR 3.0T, 5.0T and 9.4T MR scanners for research; powerful CPU and GPU computing resources; close cooperation with industry and hospitals.
               </p>
             </div>
 
@@ -199,7 +199,7 @@ export default function IPhonePage() {
               </div>
               <h3 className="font-semibold text-xl mb-2">Mentorship & Growth</h3>
               <p className="text-gray-600 text-sm">
-                Benefit from a hands-on mentorship approach that balances guidance with independence. Our team emphasizes practical skills development, industry connections, and publication opportunities, helping you build a strong foundation for your research career.
+                Benefit from a kind of mentorship that balances between supervision and independence. Our team emphasizes development of engineering skills, industrial and clinical connections, and training of scientific writing and presentation, which are vital for future career development.
               </p>
             </div>
 
@@ -214,7 +214,7 @@ export default function IPhonePage() {
               </div>
               <h3 className="font-semibold text-xl mb-2">Supportive Lab Culture</h3>
               <p className="text-gray-600 text-sm">
-                Join a collaborative environment where ideas flow freely and everyone's contributions are valued. We foster a warm, inclusive atmosphere with flexible scheduling, open communication, and regular social gatherings that build genuine connections beyond research.
+                Join a collaborative environment where ideas can be easily communicated and everyone's contributions are valued. We foster a warm, inclusive atmosphere with flexible scheduling, open communication, and regular social gatherings that build genuine connections beyond research.
               </p>
             </div>
           </div>

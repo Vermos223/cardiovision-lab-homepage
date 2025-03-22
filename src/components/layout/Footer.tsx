@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="bg-gray-100 text-gray-700 text-sm">
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Directory */}
-        <div className="py-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="py-4 grid grid-cols-1 md:grid-cols-2 gap-20">
           <div>
             <h2 className="font-semibold text-base text-gray-900 mb-3">Institution</h2>
             <ul className="space-y-2">
@@ -18,17 +18,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="font-semibold text-base text-gray-900 mb-3">Other Team</h3>
             <ul className="space-y-2">
               <li><Link href="https://idea.bme.shanghaitech.edu.cn/main.htm" className="hover:underline">IDEA Lab</Link></li>
               <li><Link href="https://shanghaitech-impact.github.io/" className="hover:underline">IMPACT Lab</Link></li>
               <li><Link href="https://qianwang.space/" className="hover:underline">MIIL</Link></li>
             </ul>
-          </div>
-          <div className="flex justify-end">
-
-          <div className="w-full max-w-[2600px]">
+          </div> */}
+          <div className="flex justify-end items-start">
+          <div className="w-full max-w-[400px]">
             <GlobalImage 
               src="/images/footer/footer.png"
               alt="Lab logo"

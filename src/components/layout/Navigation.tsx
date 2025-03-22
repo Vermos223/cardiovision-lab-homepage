@@ -39,7 +39,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
               <Link href="/publications" className="text-3xl" onClick={onClose}>PUBLICATIONS</Link>
             </li>
             <li>
-              <Link href="/groupmembers" className="text-3xl" onClick={onClose}>GROUP</Link>
+              <Link href="/groupmembers" className="text-3xl" onClick={onClose}>PEOPLE</Link>
             </li>
             <li>
               <Link href="/contactus" className="text-3xl" onClick={onClose}>CONTACT</Link>
@@ -223,7 +223,7 @@ export default function Navigation() {
               <Link href="/" className="text-white text-lg nav-link">HOME</Link>
               <Link href="/research" className="text-white text-lg nav-link">RESEARCH</Link>
               <Link href="/publications" className="text-white text-lg nav-link">PUBLICATIONS</Link>
-              <Link href="/groupmembers" className="text-white text-lg nav-link">GROUP</Link>
+              <Link href="/people" className="text-white text-lg nav-link">PEOPLE</Link>
               <Link href="/contactus" className="text-white text-lg nav-link">CONTACT</Link>
             </div>
 

@@ -153,10 +153,10 @@ export default function ContactPage() {
               {/* <div className="pt-4 border-t border-gray-200"> */}
                     <h3 className="font-medium text-3xl mb-3 text-gray-700">Opportunities</h3>
                     <p className="text-gray-600 mb-4">
-                      Welcome students with backgrounds in Biomedical Engineering, Electrical Engineering, Mathematics, Computer Science, and Medicine.
+                      Welcome students and post-docs with various backgrounds such as Biomedical Engineering, Electrical Engineering, Mathematics, Computer Science, and Medicine.
                     </p>
     
-                    <div className="space-y-2 mb-4">
+                    {/* <div className="space-y-2 mb-4">
                       <div className="flex items-start">
                         <svg className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -176,7 +176,7 @@ export default function ContactPage() {
                         </svg>
                         <span className="text-gray-600">Postdoctoral Positions</span>
                       </div>
-                    </div>
+                    </div> */}
                   {/* </div> */}
 
               </div>

@@ -3,6 +3,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import GlobalImage from '../../components/common/GlobalImage';
+
 interface HeroProps {
   title: string;
   subtitle: string;
@@ -39,6 +40,13 @@ export default function Hero({
   const [scrollProgress, setScrollProgress] = useState(0);
   const [contentStyle, setContentStyle] = useState<React.CSSProperties>({});
   const [isMobile, setIsMobile] = useState(false);
+  
+  // GIF控制状态 - 一旦播放就不会停止
+  const [gifStarted, setGifStarted] = useState(false);
+  // 保存原始GIF URL
+  const originalGifUrl = useRef(image);
+  // 保存静态图片URL
+  const staticImageUrl = useRef('');
 
   // 分割标题
   const titleParts = title.split(' ');
@@ -55,7 +63,21 @@ export default function Hero({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  // 监听页面滚动
+  // 创建静态帧版本的GIF (在组件挂载时)
+  useEffect(() => {
+    // 确保我们只处理GIF文件
+    if (image.toLowerCase().endsWith('.gif')) {
+      // 生成静态帧URL
+      const gifPath = image;
+      const staticPath = image.replace('.gif', '_static.jpg'); // 或者使用你的命名约定
+      
+      // 保存两个版本的URL
+      originalGifUrl.current = gifPath;
+      staticImageUrl.current = staticPath;
+    }
+  }, [image]);
+
+  // 监听页面滚动，控制GIF播放
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current || !contentRef.current) return;
@@ -65,7 +87,6 @@ export default function Hero({
       const scrollY = window.scrollY;
       
       // 计算滚动进度 - 用于标题的渐进式变化
-      // 使用0-100px的滚动距离作为0-1的进度值
       const maxScrollForTitleTransform = 30; 
       let titleProgress = Math.min(scrollY / maxScrollForTitleTransform, 1);
       
@@ -79,14 +100,11 @@ export default function Hero({
       // 计算内容位置的逻辑
       let newStyle: React.CSSProperties = {};
       
-      // 内容高度和底部安全区域（防止内容太靠近容器底部）
       const contentHeight = contentRect.height;
-      const bottomSafetyMargin = 50; // 底部安全边距，单位px
+      const bottomSafetyMargin = 50;
       
       if (heroRect.top <= 0) {
-        // 当Hero的顶部已滚出视野时
         if (heroRect.bottom >= contentHeight + bottomSafetyMargin) {
-          // 如果Hero的底部距离足够显示内容+安全区域
           newStyle = {
             position: 'fixed',
             top: 0,
@@ -94,18 +112,15 @@ export default function Hero({
             width: '100%'
           };
         } else {
-          // 当Hero的底部距离不足以舒适显示内容时
-          // 计算内容应该往上移动的距离，确保内容在到达底部前开始移动
           const offsetY = heroRect.bottom - contentHeight - bottomSafetyMargin;
           newStyle = {
             position: 'fixed',
-            top: `${Math.min(0, offsetY)}px`, // 不应该是正值
+            top: `${Math.min(0, offsetY)}px`,
             left: 0,
             width: '100%'
           };
         }
       } else {
-        // Hero的顶部仍在视野内，内容保持在Hero内的相对位置
         newStyle = {
           position: 'relative',
           top: 'auto',
@@ -114,14 +129,19 @@ export default function Hero({
       }
       
       setContentStyle(newStyle);
+      
+      // 只检查用户是否开始滚动
+      // 一旦标题开始移动（即用户开始滚动），就开始播放GIF
+      if (titleProgress > 0 && !gifStarted) {
+        setGifStarted(true);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // 初始化
     
-    // 确保组件卸载时移除事件监听
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, gifStarted]);
 
   // 根据 imageSize 确定图片容器类名
   const getImageContainerClass = () => {
@@ -141,14 +161,13 @@ export default function Hero({
       ? `translateX(${-50 * scrollProgress}%)` 
       : 'translateX(0)',
     transition: isMobile ? 'none' : 'all 1.0s cubic-bezier(0.165, 0.84, 0.44, 1)',
-    // 为移动端添加额外内边距，防止内容溢出
     paddingLeft: isMobile ? '16px' : '0'
   };
 
   // 根据设备类型计算字体大小
   const getTitleFontSize = () => {
     if (isMobile) {
-      return '3rem'; // 移动端更小的字体,在6.1英寸测出来3rem的效果还可以，4rem会有字体超出
+      return '3rem';
     } else {
       return `calc(5rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`;
     }
@@ -180,7 +199,7 @@ export default function Hero({
       {/* 文本内容容器 */}
       <div 
         ref={contentRef}
-        className="z-20 w-full px-4 md:px-12 pt-10" // 调整了移动端的padding
+        className="z-20 w-full px-4 md:px-12 pt-10"
         style={contentStyle}
       >
         <div 
@@ -197,13 +216,13 @@ export default function Hero({
           
           <h3 className={`text-xl md:text-2xl lg:text-3xl font-medium ${textColorClass}`}
               style={{
-                textAlign: scrollProgress < 0.5 ? 'center' : 'left', // 匹配title分段的临界点
+                textAlign: scrollProgress < 0.5 ? 'center' : 'left',
                 transform: scrollProgress < 0.3 
                   ? 'translateX(0)' 
                   : scrollProgress < 0.5 
-                    ? `translateX(${-15 * (scrollProgress - 0.3) / 0.2}%)` // 平滑过渡
-                    : 'translateX(0)', // 左对齐后不需要额外平移
-                transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.33, 1, 0.68, 1)', // 改进的曲线
+                    ? `translateX(${-15 * (scrollProgress - 0.3) / 0.2}%)` 
+                    : 'translateX(0)',
+                transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.33, 1, 0.68, 1)',
                 maxWidth: '100%'
               }}>
             {subtitle}
@@ -214,7 +233,7 @@ export default function Hero({
                style={{
                  textAlign: scrollProgress < 0.5 ? 'center' : 'left',
                  transition: isMobile ? 'none' : 'all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)',
-                 maxWidth: '100%' // 确保不会超出容器
+                 maxWidth: '100%'
                }}>
               {description}
             </p>
@@ -260,16 +279,38 @@ export default function Hero({
         </div>
       </div>
       
-      {/* Background image */}
+      {/* 背景图片/GIF - 只要开始滚动就播放，不会停止 */}
       <div className={`absolute z-10 overflow-hidden ${getImageContainerClass()}`}>
-        <GlobalImage
-          src={image}
-          alt={title}
-          fill
-          className="object-cover object-center"
-          priority
-        />
+        {image.toLowerCase().endsWith('.gif') ? (
+          <>
+            {/* 如果是GIF，开始时显示静态图像，滚动后显示动态GIF */}
+            <img
+              src={gifStarted ? originalGifUrl.current : staticImageUrl.current || originalGifUrl.current}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-cover object-right"
+              style={{
+                transition: 'opacity 0.3s ease-in-out'
+              }}
+            />
+          </>
+        ) : (
+          // 如果不是GIF，使用标准的Next.js Image组件
+          <GlobalImage
+            src={image}
+            alt={title}
+            fill
+            className="object-cover object-right"
+            priority
+          />
+        )}
       </div>
+
+      {/* GIF播放状态指示器（开发调试用，可以移除） */}
+      {/* {process.env.NODE_ENV === 'development' && image.toLowerCase().endsWith('.gif') && (
+        <div className="absolute top-3 right-3 z-30 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+          GIF状态: {gifStarted ? '已激活' : '等待激活'}
+        </div>
+      )} */}
 
       {/* Optional tag line */}
       <div className="absolute bottom-5 w-full text-center z-20">

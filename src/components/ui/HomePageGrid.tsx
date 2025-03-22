@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import GlobalImage from '../../components/common/GlobalImage';
+import GlobalImage from '../common/GlobalImage';
 interface ProductPromoProps {
   title: string;
   subtitle: string;
@@ -21,7 +21,7 @@ interface ProductPromoProps {
   isSmall?: boolean;
 }
 
-export default function ProductPromo({
+export default function HomePageGrid({
   title,
   subtitle,
   description,

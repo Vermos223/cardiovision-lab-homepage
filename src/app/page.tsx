@@ -1,6 +1,6 @@
 import Layout from "../components/layout/Layout";
 import Hero from "../components/ui/Hero";
-import ProductPromo from "../components/ui/ProductPromo";
+import ProductPromo from "../components/ui/HomePageGrid";
 import Image from "next/image";
 import GlobalImage from '../components/common/GlobalImage';
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
           <Hero
             title="ShanghaiTech CardioVision Lab"
             subtitle="Pushing the Boundaries of  CMR."
-            image="/images/homepage/cmr_home.jpg"
+            image="/images/homepage/animation222_mobile.gif"
             darkText={false}
             bgColor="#f1f3f9"
             imageSize="full"
@@ -22,10 +22,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
-                Advancing Cardiac Imaging
+              Advancing Cardiac Imaging and MRI Speed
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6 text-xl">
-              Our laboratory is dedicated to advancing imaging while expanding imaging.
+              Our group is currently working on developing next-generation cardiovascular MR techniques and pushing the speed limit of MR aiming for MR-guided treatment.
               </p>
               <div className="border-l-4 border-gray-900 pl-4 italic text-gray-600">
                 "Observing the heart's beat is one thing; understanding why it beats is quite another. Advancing cardiac imaging technologies are now bridging this formidable gap."
@@ -36,34 +36,33 @@ export default function Home() {
                 <GlobalImage
                   src="/images/homepage/cmr_overview.jpg"
                   alt="Cardiac MRI Overview"
-                  layout="fill"
-                  objectFit="fill"
+                  fill
+                  // objectFit="fill"
                 />
               </div>
             </div>
           </div>
         </div>
 
-      {/* Promo Grid Sections - 调整与上部分布局一致 */}
+      {/* Promo Grid Sections */}
         <div className="container max-w-5xl mx-auto px-6 mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <ProductPromo
-              title="Next-Generation Cardiac MRI"
+              title="Next-Generation CMR"
               subtitle="High-resolution single-sequence multi-parametric cardiac MRI integrated with AI to optimize data acquisition, motion correction, image reconstruction, and cardiac disease diagnosis."
               primaryLink={{ text: "Learn more", url: "/research#next-gen-cmr" }}
-              // secondaryLink={{ text: "Buy", url: "/shop/buy-watch/fruit-watch-series-10" }}
+              // secondaryLink={{ text: "", url: "" }}
               image="/images/homepage/nextgencmr.jpg"
               darkText={true}
               bgColor="#ffffff"
-              // logoImage="/images/logo-apple-watch.png"
               isSmall={true}
             />
 
             <ProductPromo
-              title="Accelerating MR for Treatment Guidance"
-              subtitle="Real-time MR imaging with advanced acceleration techniques integrated with trajectory optimization for precise, adaptive guidance of cardiac interventions and therapeutic procedures."
+              title="MR-Guided Treatment"
+              subtitle="Real-time MR imaging with highly efficient sampling trajectory and advanced reconstruction techniques for guiding the treatment process."
               primaryLink={{ text: "Learn More", url: "/research#accelerating-mr" }}
-              image="/images/homepage/realtime.jpg"
+              image="/images/homepage/motiontracking.gif"
               darkText={true}
               bgColor="#ffffff"
               isSmall={true}

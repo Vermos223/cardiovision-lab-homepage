@@ -3,7 +3,7 @@ import Layout from "../../components/layout/Layout";
 import Hero from "../../components/ui/Hero";
 import Image from "next/image";
 import { useState } from "react";
-import 'katex/dist/katex.min.css'; // 导入KaTeX CSS
+import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import GlobalImage from '../../components/common/GlobalImage';
 export default function ResearchDirections() {
@@ -23,16 +23,16 @@ export default function ResearchDirections() {
     <Layout>
 
       {/* First Research Direction */}
-      <section id="next-gen-cmr" className="py-12  bg-gray-100">
+      <section id="next-gen-cmr" className="py-20  bg-gray-100">
         <div className="container max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               Next-Generation Cardiac MRI
             </h2>
-            <div className="w-24 h-1 bg-gray-900 mx-auto mb-6"></div>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            {/* <div className="w-24 h-1 bg-gray-900 mx-auto mb-6"></div> */}
+              {/* <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 Developing comprehensive high-resolution Cardiac MRI techniques intergrated with artificial intelligence
-              </p>
+              </p> */}
           </div>
           
           <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-8"> Free-breathing Multi-Parametric Mapping</h3>
@@ -46,7 +46,7 @@ export default function ResearchDirections() {
                   3D B1+ corrected simultaneous myocardial T1 and T1<InlineMath math={"\\rho"} /> mapping with subject-specific respiratory motion correction and water-fat separation
                   </h2>
                   <p className="text-gray-700">
-                  Our Free-Breathing 3D Whole-Heart Simultaneous T1 and T1<InlineMath math={"\\rho"} /> Quantification technique integrates IR and T1<InlineMath math={"\\rho"} /> pulses, dual-echo Dixon acquisition, and diaphragm navigation for motion tracking. Combined with our <i>SubNdMoCo</i> non-rigid motion correction and dictionary-based multicontrast matching, this approach delivers precise T1, T1<InlineMath math={"\\rho"} />, and B1+ maps with enhanced efficiency and robustness for cardiac diagnostics.
+                  Our Free-Breathing 3D Whole-Heart Simultaneous T1 and T1<InlineMath math={"\\rho"} /> Quantification technique integrates IR and T1<InlineMath math={"\\rho"} /> pulses, dual-echo Dixon acquisition, and diaphragm navigation for motion tracking. Combined with our <i>SubNdMoCo</i> non-rigid motion correction and dictionary-based multicontrast matching, this approach delivers precise T1, T1<InlineMath math={"\\rho"} />, and B1+ maps with enhanced efficiency and robustness for diagnosis of cardiomyopathies.
                   </p>
                 </div> 
               </div>
@@ -84,7 +84,7 @@ export default function ResearchDirections() {
                   Free-breathing simultaneous native myocardial T1, T2 and T1<InlineMath math={"\\rho"} /> mapping with Cartesian acquisition and dictionary matching
                   </h2>
                   <p className="text-gray-700">
-                  We developed <i>FB-MultiMap</i>, a free-breathing technique that simultaneously quantifies T1, T2, and T1<InlineMath math={"\\rho"} /> parameters in a single scan. This innovation significantly enhances cardiac MRI efficiency, patient comfort, and diagnostic accuracy, eliminating the prolonged exams, patient discomfort, and misaligned scans associated with traditional multiple breath-hold methods.
+                  We developed <i>FB-MultiMap</i>, a free-breathing technique that simultaneously quantifies T1, T2, and T1<InlineMath math={"\\rho"} /> parameters in a single scan. Compared with conventional separate beath-hold mapping techniques, this technique can greatly simplify the acquisition process and reduce the scan time from ~5 minutes to 1 minute. FB-MultiMap has shown great potential for clinical translation of diagnosing complex cardiomyopathies without contrast agent.
                   </p>
                 </div> 
               </div>
@@ -117,7 +117,7 @@ export default function ResearchDirections() {
                   Free-breathing non-contrast T1<InlineMath math={"\\rho"} /> dispersion magnetic resonance imaging of myocardial interstitial fibrosis in comparison with extracellular volume fraction
                   </h2>
                   <p className="text-gray-700">
-                  We introduced <i>FB-MultiMap</i> for diagnosing diffuse myocardial fibrosis without gadolinium-based contrast agents. This method simultaneously quantifies T2, T1<InlineMath math={"\\rho"}/>, and myocardial fibrosis index in a single scan, enhancing diagnostic accuracy beyond traditional contrast-enhanced MRI techniques.
+                  We explored the feasibility of the non-contrast parameters including T1, T2, T1<InlineMath math={"\\rho"}/> and myocardial fibrosis index for diagnosing diffuse myocardial fibrosis without gadolinium-based contrast agents. The results suggest that <i>FB-MultiMap</i> is a promising alternative to contrast enhanced techniques.
                   </p>
                 </div> 
               </div>
@@ -191,7 +191,7 @@ export default function ResearchDirections() {
                   Predicting Late Gadolinium Enhancement of Acute Myocardial Infarction in Contrast-Free Cardiac Cine MRI Using Deep Generative Learning
                   </h2>
                   <p className="text-gray-700">
-                  We proposed <i>CGE</i>, a deep learning framework that transforms conventional Cardiac MRI cine sequences into synthetic contrast-equivalent LGE-like images, eliminating the need for gadolinium agents entirely. This technique demonstrated exceptional diagnostic accuracy for acute myocardial infarction, matching or exceeding traditional contrast-enhanced methods. By significantly reducing examination time and removing contrast-associated risks, our approach opens up a new avenue for rapid and non-invasive diagnosis of myocardial infarction, which is of great clinical value.
+                  We proposed cine generated enhancement (<i>CGE</i>), a deep learning framework that transforms widely available non-contrast cardiac cine images into LGE (late gadolinium enhancement)-like images for myocardial infarction diagnosis. <i>CGE</i> achieved superior image quality to LGE and accurate scar delineation in patients with acute MI of both internal and external datasets. <i>CGE</i> can significantly simplify the CMR examination, reducing scan times and risks associatedwith gadolinium-based contrasts, which are crucial for acute patients.
                   </p>
                 </div> 
               </div>
@@ -242,17 +242,17 @@ export default function ResearchDirections() {
       </section> */}
 
       {/* Second Research Direction */}
-      <section id="accelerating-mr" className="py-24 bg-black text-white">
+      <section id="accelerating-mr" className="py-20 bg-black text-white">
 
         <div className="container max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Pushing MRI Speed Limits
             </h2>
-            <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
+            {/* <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Developing fast MRI techniques for real-time guidance during cardiac interventions
-            </p>
+            </p> */}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-stretch">
@@ -262,14 +262,14 @@ export default function ResearchDirections() {
                   <GlobalImage
                   src="/images/research/3DSpiral3.gif"
                   alt="Real-time MRI guided intervention"
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  style={{objectFit: 'contain'}}
                   unoptimized={true}
                   />
                 </div>
                 <div className="px-6 pt-2 pb-6">
                   <p className="text-sm text-gray-400 italic text-center">
-                    A new 3D spiral trajectory for real-time MRI guidance.
+                    A new 3D non-Cartesian trajectory.
                   </p>
                 </div>
               </div>
@@ -282,7 +282,7 @@ export default function ResearchDirections() {
                     Non-cartesian Trajectory
                   </h3>
                   <p className="text-gray-300">
-                  By carefully planning the sampling trajectory, non-Cartesian imaging acquires more data every excitation compared to conventional Cartesian sampling. This technique can be applied to various MRI scenario, including MR-guided radiotherapy (MRgRT), mapping, structural imaging.
+                  By carefully planning the sampling trajectory, non-Cartesian imaging acquires more data every excitation compared to conventional Cartesian sampling. This technique can be applied to various MRI scenario, including including efficient volumetric imaging, large-coverage quantitative imaging and 3D real-time MRI.
                   </p>
                 </div>
               </div>
@@ -291,39 +291,35 @@ export default function ResearchDirections() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start my-10">
             <div className="flex flex-col space-y-6 order-4 md:order-3">
-              <div className="grid grid-cols-2 gap-4">
-                {/* 第一张图片 */}
-                <div className="flex flex-col">
+            <div className="flex flex-col">
+                <div className="grid grid-cols-2 gap-4">
+                  {/* 第一张图片 */}
                   <div className="relative aspect-square w-full bg-black rounded-lg overflow-hidden">
                     <GlobalImage
-                      src="/images/research/realtime_nufft.gif"
+                      src="/images/research/nufft.gif"
                       alt="Spiral trajectory"
-                      layout="fill"
-                      objectFit="contain"
+                      fill
+                      style={{ objectFit: 'contain' }}
                       unoptimized={true}
                     />
                   </div>
-                  <p className="text-sm text-gray-400 italic text-center mt-2">
-                   spiral trajectory 3 interleave per frame reconstruction with nufft
-                  </p>
-                </div>
-                
-                {/* 第二张图片 */}
-                <div className="flex flex-col">
+                  
+                  {/* 第二张图片 */}
                   <div className="relative aspect-square w-full bg-black rounded-lg overflow-hidden">
                     <GlobalImage
-                      src="/images/research/realtime_DL.gif"
+                      src="/images/research/nf.gif"
                       alt="Guidance visualization"
-                      layout="fill"
-                      objectFit="contain"
+                      fill
+                      style={{objectFit: 'contain'}}
                       unoptimized={true}
                     />
                   </div>
-                  <p className="text-sm text-gray-400 italic text-center mt-2">
-                  spiral trajectory 3 interleave per frame reconstruction with deeplearning model
-                  </p>
                 </div>
-              </div>
+                <p className="text-sm text-gray-400 italic text-center mt-4">
+                One spiral (6ms) per frame with NUFFT (left) and our proposed method (right). 
+                </p>
+              </div>  
+            
             </div>
   
             {/* 右侧文字部分 */}
@@ -334,7 +330,7 @@ export default function ResearchDirections() {
                     Accelerated Reconstruction
                   </h3>
                   <p className="text-gray-300">
-                    We employ advanced algorithms that reconstruct high-quality images from significantly undersampled data, dramatically reducing scan times.
+                  We developed advanced deep learning reconstruction methods to reconstruct high-quality images from highly undersampled data.
                   </p>
                 </div>
               </div>
@@ -344,16 +340,16 @@ export default function ResearchDirections() {
       </section>
 
       {/* Key Publications */}
-      <section className="py-24 bg-white">
+      <section className="py-20 bg-white">
         <div className="container max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               Representative Publications
             </h2>
-            <div className="w-24 h-1 bg-gray-900 mx-auto mb-6"></div>
+            {/* <div className="w-24 h-1 bg-gray-900 mx-auto mb-6"></div>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Selected works highlighting our contributions to the field
-            </p>
+            </p> */}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -369,8 +365,8 @@ export default function ResearchDirections() {
                 <GlobalImage
                   src="/images/research/publication1.jpg"
                   alt="Publication 1"
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
               <div className="p-6">
@@ -547,13 +543,13 @@ export default function ResearchDirections() {
       </section> */}
 
       {/* Call to Action */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-10 bg-gray-900 text-white">
         <div className="container max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Join Our Research
+            Join Us
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-            Interested in advancing cardiac MRI technology? We're always looking for passionate researchers to join our team.
+          Interested in our research? We welcome passionate students/researchers to join our team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contactus#contact-form" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
