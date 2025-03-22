@@ -39,7 +39,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
               <Link href="/publications" className="text-3xl" onClick={onClose}>PUBLICATIONS</Link>
             </li>
             <li>
-              <Link href="/groupmembers" className="text-3xl" onClick={onClose}>PEOPLE</Link>
+              <Link href="/people" className="text-3xl" onClick={onClose}>PEOPLE</Link>
             </li>
             <li>
               <Link href="/contactus" className="text-3xl" onClick={onClose}>CONTACT</Link>
