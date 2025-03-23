@@ -60,7 +60,7 @@ export default function Hero({
       const gifPath = image;
       const staticPath = image.replace('.gif', '_static.jpg');
       originalGifUrl.current = gifPath;
-      staticImageUrl.current = staticPath;
+      staticImageUrl.current = gifPath;
     }
   }, [image]);
 
