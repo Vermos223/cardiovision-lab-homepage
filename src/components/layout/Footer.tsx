@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="bg-gray-100 text-gray-700 text-sm">
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Directory */}
-        <div className="py-4 grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="py-4 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
           <div>
             <h2 className="font-semibold text-base text-gray-900 mb-3">Institution</h2>
             <ul className="space-y-2">
@@ -26,7 +26,7 @@ export default function Footer() {
               <li><Link href="https://qianwang.space/" className="hover:underline">MIIL</Link></li>
             </ul>
           </div> */}
-          <div className="flex justify-end items-start">
+          <div className="flex justify-start md:justify-end items-start">
           <div className="w-full max-w-[400px]">
             <GlobalImage 
               src="/images/footer/footer.png"

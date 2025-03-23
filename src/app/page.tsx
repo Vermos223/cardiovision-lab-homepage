@@ -14,7 +14,6 @@ export default function Home() {
             image="/images/homepage/animation222_mobile.gif"
             darkText={false}
             bgColor="#f1f3f9"
-            imageSize="full"
           />
         </section>
 
