@@ -31,9 +31,9 @@ export default function Home() {
               </div> */}
             </div>
             <div className="rounded-xl overflow-hidden shadow-xl">
-              <div className="relative h-72 w-full">
+              <div className="relative h-72 w-full rounded-lg">
                 <GlobalImage
-                  src="/images/homepage/cmr_overview.jpg"
+                  src="/images/homepage/cmr_overview22.jpg"
                   alt="Cardiac MRI Overview"
                   fill
                   // objectFit="fill"
