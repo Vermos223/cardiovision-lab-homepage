@@ -6,7 +6,7 @@ import GlobalImage from '../../components/common/GlobalImage';
 
 interface HeroProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description?: string;
   primaryLink?: {
     text: string;
@@ -155,11 +155,16 @@ export default function Hero({
   };
 
   // 计算标题样式 - 根据滚动进度平滑过渡
+  // const titleContainerStyle: React.CSSProperties = {
+  //   textAlign: scrollProgress < 0.1 ? 'center' : 'left',
+  //   transform: scrollProgress < 0.3 
+  //     ? `translateX(${-50 * scrollProgress}%)` 
+  //     : 'translateX(0)',
+  //   transition: isMobile ? 'none' : 'all 1.0s cubic-bezier(0.165, 0.84, 0.44, 1)',
+  //   paddingLeft: isMobile ? '16px' : '0'
+  // };
   const titleContainerStyle: React.CSSProperties = {
-    textAlign: scrollProgress < 0.1 ? 'center' : 'left',
-    transform: scrollProgress < 0.3 
-      ? `translateX(${-50 * scrollProgress}%)` 
-      : 'translateX(0)',
+    textAlign: 'left',
     transition: isMobile ? 'none' : 'all 1.0s cubic-bezier(0.165, 0.84, 0.44, 1)',
     paddingLeft: isMobile ? '16px' : '0'
   };
@@ -169,7 +174,8 @@ export default function Hero({
     if (isMobile) {
       return '3rem';
     } else {
-      return `calc(5rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`;
+      return '5rem'; // 基础字体大小
+      // return `calc(4rem + ${scrollProgress < 0.5 ? 1 : 0}rem)`;
     }
   };
 
@@ -177,7 +183,8 @@ export default function Hero({
   const firstLineStyle: React.CSSProperties = {
     opacity: 1,
     fontSize: getTitleFontSize(),
-    display: 'inline-block',
+    // display: 'inline-block',
+    display: 'block',
     marginRight: scrollProgress < 0.5 ? '0.5rem' : '0',
     transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
   };
@@ -186,7 +193,8 @@ export default function Hero({
   const secondLineStyle: React.CSSProperties = {
     opacity: 1,
     fontSize: getTitleFontSize(),
-    display: scrollProgress < 0.5 ? 'inline-block' : 'block',
+    // display: scrollProgress < 0.5 ? 'inline-block' : 'block',
+    display: 'block',
     transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'
   };
 
@@ -215,13 +223,18 @@ export default function Hero({
           </h2>
           
           <h3 className={`text-xl md:text-2xl lg:text-3xl font-medium ${textColorClass}`}
+              // style={{
+              //   textAlign: scrollProgress < 0.5 ? 'center' : 'left',
+              //   transform: scrollProgress < 0.3 
+              //     ? 'translateX(0)' 
+              //     : scrollProgress < 0.5 
+              //       ? `translateX(${-15 * (scrollProgress - 0.3) / 0.2}%)` 
+              //       : 'translateX(0)',
+              //   transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.33, 1, 0.68, 1)',
+              //   maxWidth: '100%'
+              // }}>
               style={{
-                textAlign: scrollProgress < 0.5 ? 'center' : 'left',
-                transform: scrollProgress < 0.3 
-                  ? 'translateX(0)' 
-                  : scrollProgress < 0.5 
-                    ? `translateX(${-15 * (scrollProgress - 0.3) / 0.2}%)` 
-                    : 'translateX(0)',
+                textAlign: 'left',
                 transition: isMobile ? 'none' : 'all 0.8s cubic-bezier(0.33, 1, 0.68, 1)',
                 maxWidth: '100%'
               }}>

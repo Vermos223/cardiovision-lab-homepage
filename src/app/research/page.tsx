@@ -282,7 +282,7 @@ export default function ResearchDirections() {
                     Non-cartesian Trajectory
                   </h3>
                   <p className="text-gray-300">
-                  By carefully planning the sampling trajectory, non-Cartesian imaging acquires more data every excitation compared to conventional Cartesian sampling. This technique can be applied to various MRI scenario, including including efficient volumetric imaging, large-coverage quantitative imaging and 3D real-time MRI.
+                  By carefully planning the sampling trajectory, non-Cartesian imaging acquires more data every excitation compared to conventional Cartesian sampling. This technique can be applied to various MRI scenario, including efficient volumetric imaging, large-coverage quantitative imaging and 3D real-time MRI.
                   </p>
                 </div>
               </div>
