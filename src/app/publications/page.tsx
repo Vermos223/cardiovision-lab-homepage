@@ -274,7 +274,7 @@ export default function PublicationsPage() {
             onClick={() => setSelectedPublication(null)}
           >
             <div 
-              className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto relative"
               onClick={e => e.stopPropagation()}
             >
               <div className="p-6">

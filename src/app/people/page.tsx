@@ -86,13 +86,13 @@ export default function IPhonePage() {
       interval={15000} // 15秒切换一次
       />
         {/* 导师介绍区块 */}
-        <section className="pt-8 pb-8 bg-white">
+        <section className="pt-4 pb-4 lg:pt-8 lg:pb-8 bg-white">
           <div className="normal-container">
-            <h2 className="text-3xl font-bold text-center mb-12">Principal Investigator</h2>
-            <div className="flex flex-col lg:flex-row gap-10 items-center lg:items-start">
+            <h2 className="text-3xl font-bold text-center mb-6 lg:mb-12">Principal Investigator</h2>
+            <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 items-center lg:items-start">
               {/* 导师照片 */}
-              <div className="w-full lg:w-1/3">
-                <div className="relative aspect-square max-w-sm mx-auto overflow-hidden rounded-lg">
+              <div className="w-full lg:w-1/3 flex justify-center">
+              <div className="relative aspect-square w-48 lg:w-full max-w-sm overflow-hidden rounded-lg">
                   <GlobalImage 
                     src="/images/members/haikunqi.jpg" 
                     alt="Dr. Haikun Qi" 
