@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="flex justify-start md:justify-end items-start">
           <div className="w-full max-w-[400px]">
             <GlobalImage 
-              src="/images/footer/footer.png"
+              src="/images/footer/footer2.png"
               alt="Lab logo"
               width={300}
               height={90}

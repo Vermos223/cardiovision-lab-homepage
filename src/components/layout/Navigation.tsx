@@ -145,7 +145,7 @@ export default function Navigation() {
       <nav className="bg-apple-nav/85 backdrop-blur-lg">
           <div className="max-w-[1024px] h-[44px] mx-auto flex items-center justify-between px-5 md:px-8">
             {/* Fruit Logo */}
-            <Link href="/" className="text-white" aria-label="Fruit">
+            {/* <Link href="/" className="text-white" aria-label="Fruit">
               <GlobalImage
                 src="/images/homepage/cv1.jpg"
                 alt="cardiovisionlab"
@@ -154,7 +154,7 @@ export default function Navigation() {
                 className="h-[32px] w-auto"
                 priority
               />
-            </Link>
+            </Link> */}
 
             {/* Desktop Navigation Menu */}
             <div className="hidden md:flex space-x-7 justify-center flex-1">

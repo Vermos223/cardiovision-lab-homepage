@@ -11,9 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "CardioVisionLab",
   description: "CardioVisionLab is a medical technology company that provides a platform for remote monitoring of patients with cardiovascular diseases.",
-  icons: {
-    icon: "/images/navigation/cv2_square_icon.png",
-  },
+  // icons: {
+  //   icon: "/images/navigation/cv2_square_icon.png",
+  // },
 };
 
 export default function RootLayout({
