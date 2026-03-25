@@ -1,16 +1,11 @@
 'use client'
 import React from 'react';
 import Layout from '../../components/layout/Layout';
-import StickyProductNav from '../../components/layout/StickyProductNav';
-import ProductComparison from '../../components/ui/ProductComparison';
 import FeatureShowcase from '../../components/ui/FeatureShowcase';
-import Hero from '../../components/ui/Hero';
-import Image from 'next/image';
-import Link from 'next/link';
 import ImageSlideshow from './imageslide';
 import GlobalImage from '../../components/common/GlobalImage';
 
-export default function IPhonePage() {
+export default function PeoplePage() {
   const PHDStudents = [
     {
       icon: '/images/members/zhenfenglv.jpg',

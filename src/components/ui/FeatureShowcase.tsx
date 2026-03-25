@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import GlobalImage from '../../components/common/GlobalImage';
 interface FeatureProps {
   icon: string;

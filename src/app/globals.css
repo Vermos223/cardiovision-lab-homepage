@@ -2,70 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import SF Pro fonts */
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://web-assets.same.dev/CpwfC1741584433234') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://web-assets.same.dev/_TT3l1741584433242') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://web-assets.same.dev/IV55u1741584433133') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://web-assets.same.dev/kKC3x1741584433697') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('https://web-assets.same.dev/dSrmo1741584433184') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('https://web-assets.same.dev/ogZTQ1741584433245') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('https://web-assets.same.dev/BwSpK1741584433121') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('https://web-assets.same.dev/nZidq1741584441993') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 @layer base {
   :root {
@@ -120,18 +56,17 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
 }
 
-/* Apple-specific styles */
 @layer components {
   .nav-link {
-    @apply opacity-80 hover:opacity-100 duration-700 transition-all text-lg hover:text-xl ease-in-out;
+    @apply opacity-80 hover:opacity-100 duration-300 transition-opacity text-lg ease-in-out;
   }
 
   .normal-container {

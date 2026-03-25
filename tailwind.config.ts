@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       colors: {
-        apple: {
+        site: {
           'nav': 'rgba(0, 0, 0, 0.4)',
           'nav-light': 'rgba(255, 255, 255, 0.8)',
           'hero-blue': '#25303a',

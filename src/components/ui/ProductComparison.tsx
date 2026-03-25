@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import GlobalImage from '../../components/common/GlobalImage';
 interface ProductCompareItemProps {
@@ -65,7 +64,7 @@ const ProductCompareItem: React.FC<ProductCompareItemProps> = ({
 
       <Link
         href={linkUrl}
-        className="text-apple-link-blue hover:underline text-sm"
+        className="text-site-link-blue hover:underline text-sm"
       >
         Buy
         <span className="ml-1">
@@ -86,7 +85,7 @@ export default function ProductComparison({ products }: ProductComparisonProps) 
   return (
     <div className="py-16 bg-white">
       <div className="normal-container">
-        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Which iPhone is right for you?</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Compare Products</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <ProductCompareItem key={index} {...product} />

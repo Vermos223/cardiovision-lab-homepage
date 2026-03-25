@@ -58,7 +58,7 @@ export default function StickyProductNav({
         </div>
         <Link
           href={buyLink}
-          className="bg-apple-link-blue text-white text-xs font-semibold px-4 py-1 rounded-full"
+          className="bg-site-link-blue text-white text-xs font-semibold px-4 py-1 rounded-full"
         >
           Buy
         </Link>

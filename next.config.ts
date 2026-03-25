@@ -2,11 +2,11 @@ import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // 添加静态导出配置
+  // 静态导出配置
   output: 'export',
-  // 添加 basePath 和 assetPrefix
-  basePath: process.env.NODE_ENV === 'production' ? '/cardiovision-lab-homepage' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/cardiovision-lab-homepage/' : '',
+  // GitHub Pages 自定义域名部署，不需要 basePath
+  // basePath: '',
+  // assetPrefix: '',
   // Enable remote images
   images: {
     // 添加 unoptimized 选项

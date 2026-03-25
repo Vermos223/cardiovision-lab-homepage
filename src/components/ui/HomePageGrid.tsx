@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import GlobalImage from '../common/GlobalImage';
 interface ProductPromoProps {
   title: string;
@@ -64,7 +63,7 @@ export default function HomePageGrid({
           {primaryLink && (
           <Link
             href={primaryLink.url}
-            className="text-apple-link-blue text-md hover:underline flex items-center"
+            className="text-site-link-blue text-md hover:underline flex items-center"
           >
             {primaryLink.text}
             <span className="ml-1">
@@ -78,7 +77,7 @@ export default function HomePageGrid({
           {secondaryLink && (
             <Link
               href={secondaryLink.url}
-              className="text-apple-link-blue text-md hover:underline flex items-center"
+              className="text-site-link-blue text-md hover:underline flex items-center"
             >
               {secondaryLink.text}
               <span className="ml-1">

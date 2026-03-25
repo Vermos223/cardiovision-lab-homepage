@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import GlobalImage from '../common/GlobalImage';
 
 export default function Footer() {

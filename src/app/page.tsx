@@ -1,7 +1,6 @@
 import Layout from "../components/layout/Layout";
 import Hero from "../components/ui/Hero";
 import ProductPromo from "../components/ui/HomePageGrid";
-import Image from "next/image";
 import GlobalImage from '../components/common/GlobalImage';
 export default function Home() {
   return (
