@@ -69,21 +69,14 @@ export default function Hero({
       </div>
 
       <div className={`absolute z-10 overflow-hidden ${getImageContainerClass()}`}>
-        {image.toLowerCase().endsWith('.gif') ? (
-          <img
-            src={image}
-            alt={title}
-            className="absolute inset-0 w-full h-full object-cover object-right"
-          />
-        ) : (
-          <GlobalImage
-            src={image}
-            alt={title}
-            fill
-            className="object-cover object-right"
-            priority
-          />
-        )}
+        <GlobalImage
+          src={image}
+          alt={title}
+          fill
+          className="object-cover object-right"
+          priority
+          unoptimized={image.toLowerCase().endsWith('.gif')}
+        />
       </div>
 
       <div className="absolute bottom-5 w-full text-center z-20">
