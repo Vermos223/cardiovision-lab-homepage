@@ -4,9 +4,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // 静态导出配置
   output: 'export',
-  // GitHub Pages 默认子路径部署，需要 basePath
-  basePath: process.env.NODE_ENV === 'production' ? '/cardiovision-lab-homepage' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/cardiovision-lab-homepage/' : '',
+  // 使用自定义域名 cardiovision.top 根路径部署，不需要 basePath
+  // basePath: '',
+  // assetPrefix: '',
 
   // Enable remote images
   images: {
